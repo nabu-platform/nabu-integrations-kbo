@@ -1,0 +1,4 @@
+<structure name="list">
+    <structure definition="nabu.integrations.kbo.csv.establishment.create" maxOccurs="unbounded" minOccurs="0" name="create"/>
+    <structure definition="nabu.integrations.kbo.csv.establishment.delete" maxOccurs="unbounded" minOccurs="0" name="delete"/>
+</structure>

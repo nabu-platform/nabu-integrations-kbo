@@ -1,0 +1,3 @@
+<structure name="list">
+    <structure definition="nabu.integrations.kbo.csv.code.create" maxOccurs="unbounded" minOccurs="0" name="create"/>
+</structure>

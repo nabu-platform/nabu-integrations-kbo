@@ -1,0 +1,453 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://economie.fgov.be/kbopub/webservices/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://economie.fgov.be/kbopub/webservices/v1/datamodel" xmlns:messages="http://economie.fgov.be/kbopub/webservices/v1/messages" targetNamespace="http://economie.fgov.be/kbopub/webservices/v1">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://economie.fgov.be/kbopub/webservices/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns="http://economie.fgov.be/kbopub/webservices/v1/datamodel" xmlns:messages="http://economie.fgov.be/kbopub/webservices/v1/messages" targetNamespace="http://economie.fgov.be/kbopub/webservices/v1/messages">
+			
+  <xs:include schemaLocation="https://kbopub.economie.fgov.be/kbopubws110000/services/wsKBOPub?xsd=messages.xsd"/>
+		
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="ReadEnterpriseByAuthorizationRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEnterpriseByAuthorizationRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseByAuthorizationReply">
+    <wsdl:part element="messages:ReadEnterpriseByAuthorizationReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByNameExactMatchReply">
+    <wsdl:part element="messages:ReadEstablishmentByNameExactMatchReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByAuthorizationRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEstablishmentByAuthorizationRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadStreetNameRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadStreetNameRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByPhonemeReply">
+    <wsdl:part element="messages:ReadEstablishmentByPhonemeReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseByPhonemeRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEnterpriseByPhonemeRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseReply">
+    <wsdl:part element="messages:ReadEnterpriseReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseLegalPersonByCompanyNameExactMatchReply">
+    <wsdl:part element="messages:ReadEnterpriseLegalPersonByCompanyNameExactMatchReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseByPhysicalPersonNameExactMatchReply">
+    <wsdl:part element="messages:ReadEnterpriseByPhysicalPersonNameExactMatchReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseByPhysicalPersonNameExactMatchRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEnterpriseByPhysicalPersonNameExactMatchRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadStreetNameReply">
+    <wsdl:part element="messages:ReadStreetNameReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseOrEstablishmentByAddressReply">
+    <wsdl:part element="messages:ReadEnterpriseOrEstablishmentByAddressReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByEnterpriseNumberReply">
+    <wsdl:part element="messages:ReadEstablishmentByEnterpriseNumberReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseByPhonemeReply">
+    <wsdl:part element="messages:ReadEnterpriseByPhonemeReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByEnterpriseNumberRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEstablishmentByEnterpriseNumberRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByAuthorizationReply">
+    <wsdl:part element="messages:ReadEstablishmentByAuthorizationReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseLegalPersonByCompanyNameExactMatchRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEnterpriseLegalPersonByCompanyNameExactMatchRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadCodeListReply">
+    <wsdl:part element="messages:ReadCodeListReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEnterpriseRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByNameExactMatchRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEstablishmentByNameExactMatchRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseOrEstablishmentByAddressRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEnterpriseOrEstablishmentByAddressRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByPhonemeRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEstablishmentByPhonemeRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadCodeListRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadCodeListRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByEstablishmentNumberReply">
+    <wsdl:part element="messages:ReadEstablishmentByEstablishmentNumberReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEstablishmentByEstablishmentNumberRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEstablishmentByEstablishmentNumberRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseOrEstablishmentByActivityRequest">
+    <wsdl:part element="messages:RequestContext" name="requestContext">
+    </wsdl:part>
+    <wsdl:part element="messages:ReadEnterpriseOrEstablishmentByActivityRequest" name="requestParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReadEnterpriseOrEstablishmentByActivityReply">
+    <wsdl:part element="messages:ReadEnterpriseOrEstablishmentByActivityReply" name="replyParameters">
+    </wsdl:part>
+    <wsdl:part element="messages:ReplyContext" name="replyContext">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WSKBOPub">
+    <wsdl:operation name="ReadEnterprise">
+      <wsdl:input message="tns:ReadEnterpriseRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEnterpriseReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseByPhoneme">
+      <wsdl:input message="tns:ReadEnterpriseByPhonemeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEnterpriseByPhonemeReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByEnterpriseNumber">
+      <wsdl:input message="tns:ReadEstablishmentByEnterpriseNumberRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEstablishmentByEnterpriseNumberReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByEstablishmentNumber">
+      <wsdl:input message="tns:ReadEstablishmentByEstablishmentNumberRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEstablishmentByEstablishmentNumberReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseByPhysicalPersonNameExactMatch">
+      <wsdl:input message="tns:ReadEnterpriseByPhysicalPersonNameExactMatchRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEnterpriseByPhysicalPersonNameExactMatchReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseLegalPersonByCompanyNameExactMatch">
+      <wsdl:input message="tns:ReadEnterpriseLegalPersonByCompanyNameExactMatchRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEnterpriseLegalPersonByCompanyNameExactMatchReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByNameExactMatch">
+      <wsdl:input message="tns:ReadEstablishmentByNameExactMatchRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEstablishmentByNameExactMatchReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByPhoneme">
+      <wsdl:input message="tns:ReadEstablishmentByPhonemeRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEstablishmentByPhonemeReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseOrEstablishmentByAddress">
+      <wsdl:input message="tns:ReadEnterpriseOrEstablishmentByAddressRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEnterpriseOrEstablishmentByAddressReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadStreetName">
+      <wsdl:input message="tns:ReadStreetNameRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadStreetNameReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseOrEstablishmentByActivity">
+      <wsdl:input message="tns:ReadEnterpriseOrEstablishmentByActivityRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEnterpriseOrEstablishmentByActivityReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseByAuthorization">
+      <wsdl:input message="tns:ReadEnterpriseByAuthorizationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEnterpriseByAuthorizationReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByAuthorization">
+      <wsdl:input message="tns:ReadEstablishmentByAuthorizationRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadEstablishmentByAuthorizationReply">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadCodeList">
+      <wsdl:input message="tns:ReadCodeListRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReadCodeListReply">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSKBOPubBinding" type="tns:WSKBOPub">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ReadEnterprise">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEnterprise"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEnterpriseRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEnterpriseReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseByPhoneme">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEnterpriseByPhoneme"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEnterpriseByPhonemeRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEnterpriseByPhonemeReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByEnterpriseNumber">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEstablishmentByEnterpriseNumber"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEstablishmentByEnterpriseNumberRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEstablishmentByEnterpriseNumberReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByEstablishmentNumber">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEstablishmentByEstablishmentNumber"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEstablishmentByEstablishmentNumberRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEstablishmentByEstablishmentNumberReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseByPhysicalPersonNameExactMatch">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEnterpriseByPhysicalPersonNameExactMatch"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEnterpriseByPhysicalPersonNameExactMatchRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEnterpriseByPhysicalPersonNameExactMatchReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseLegalPersonByCompanyNameExactMatch">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEnterpriseLegalPersonByCompanyNameExactMatch"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEnterpriseLegalPersonByCompanyNameExactMatchRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEnterpriseLegalPersonByCompanyNameExactMatchReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByNameExactMatch">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEstablishmentByNameExactMatch"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEstablishmentByNameExactMatchRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEstablishmentByNameExactMatchReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByPhoneme">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEstablishmentByPhoneme"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEstablishmentByPhonemeRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEstablishmentByPhonemeReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseOrEstablishmentByAddress">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEnterpriseOrEstablishmentByAddress"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEnterpriseOrEstablishmentByAddressRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEnterpriseOrEstablishmentByAddressReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadStreetName">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadStreetName"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadStreetNameRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadStreetNameReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseOrEstablishmentByActivity">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEnterpriseOrEstablishmentByActivity"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEnterpriseOrEstablishmentByActivityRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEnterpriseOrEstablishmentByActivityReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEnterpriseByAuthorization">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEnterpriseByAuthorization"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEnterpriseByAuthorizationRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEnterpriseByAuthorizationReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadEstablishmentByAuthorization">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadEstablishmentByAuthorization"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadEstablishmentByAuthorizationRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadEstablishmentByAuthorizationReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadCodeList">
+      <soap:operation soapAction="http://fgov.economie.be/kbopub/ReadCodeList"/>
+      <wsdl:input>
+        <soap:header message="tns:ReadCodeListRequest" part="requestContext" use="literal">
+        </soap:header>
+        <soap:body parts="requestParameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:ReadCodeListReply" part="replyContext" use="literal">
+        </soap:header>
+        <soap:body parts="replyParameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WSKBOPubService">
+    <wsdl:port binding="tns:WSKBOPubBinding" name="WSKBOPub">
+      <soap:address location="https://kbopub.economie.fgov.be/kbopubws110000/services/wsKBOPub"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+<structure name="code">
+    <field label="Category" name="category" type="java.lang.String"/>
+    <field label="Code" name="code" type="java.lang.String"/>
+    <field label="Language" name="language" type="java.lang.String"/>
+    <field label="Description" minOccurs="0" name="description" type="java.lang.String"/>
+</structure>

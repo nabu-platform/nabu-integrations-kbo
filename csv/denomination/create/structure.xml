@@ -1,0 +1,6 @@
+<structure name="denomination">
+    <field label="EntityNumber" name="entityNumber" type="java.lang.String"/>
+    <field label="Language" name="language" type="java.lang.String"/>
+    <field label="TypeOfDenomination" name="typeOfDenomination" type="java.lang.String"/>
+    <field label="Denomination" name="denomination" type="java.lang.String"/>
+</structure>

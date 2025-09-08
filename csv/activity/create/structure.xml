@@ -1,0 +1,7 @@
+<structure name="activity">
+    <field label="EntityNumber" name="entityNumber" type="java.lang.String"/>
+    <field label="ActivityGroup" name="activityGroup" type="java.lang.String"/>
+    <field label="NaceVersion" name="naceVersion" type="java.lang.String"/>
+    <field label="NaceCode" name="naceCode" type="java.lang.String"/>
+    <field label="Classification" name="classification" type="java.lang.String"/>
+</structure>

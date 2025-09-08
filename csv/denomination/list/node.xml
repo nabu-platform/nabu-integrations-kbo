@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2025-09-05T12:46:11.509+02:00" lastModified="2025-09-05T12:46:24.361+02:00" leaf="true" version="3">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.csv.denomination.create</references>
+    <references>nabu.integrations.kbo.csv.denomination.delete</references>
+</node>

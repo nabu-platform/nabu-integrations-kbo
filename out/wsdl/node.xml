@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.wsdl.client.WSDLClientManager" created="2022-11-21T13:46:00.226+01:00" lastModified="2025-09-05T17:24:52.821+02:00" leaf="false" version="11">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+</node>

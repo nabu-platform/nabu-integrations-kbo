@@ -1,0 +1,390 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="7f1abdd3da524ee1b14f704914574dfb"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="We assume you want the data for the previous month"
+			disabled="false"
+			id="0907090351fd49bb83363928a2f61053"
+			label="input/year == null &amp;&amp; input/month == null"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="9c33891c711c4e7ebb52d9c0e4a6b2de"
+				serviceId="nabu.utils.Date.incrementDuration"
+				resultName="resultc44819f78dd24445a75616c20f1b42e2"
+				temporaryMapping="true"
+				x="30"
+				y="26"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="7c5fcd1989a44e90a491338ff14fbd8a"
+					fixedValue="true">
+				<from>-1</from>
+				<to>times</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="4afe4d7b8512480b8feaf25cdb2484ea"
+					fixedValue="true">
+				<from>P1M</from>
+				<to>duration</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="2c34d372f4814396bfb5f1f342c40829"
+				serviceId="nabu.utils.Date.toValues"
+				resultName="result716080d8a8914c64b0fd1ec4d212e4f4"
+				temporaryMapping="true"
+				x="311"
+				y="146"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="1ef9c4caf364479ebe62f4d8dfadc5f8"
+					fixedValue="false">
+				<from>resultc44819f78dd24445a75616c20f1b42e2/date</from>
+				<to>date</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e162311e77b64e18a288bfceaa416b55"
+					fixedValue="true">
+				<from>CET</from>
+				<to>timezone</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="dac4bcdeba1b4e0c82028ce08864d733"
+				fixedValue="false">
+			<from>result716080d8a8914c64b0fd1ec4d212e4f4/values/year</from>
+			<to>input/year</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="75f75c0629e2462ebb93516c684d774d"
+				serviceId="nabu.utils.String.pad"
+				resultName="result4ed668f2fb424b0eabde7e49448c72f1"
+				temporaryMapping="true"
+				x="747"
+				y="136"
+				invocationOrder="2"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="64efa926b98c4ef1b2366804b50ed399"
+					fixedValue="false">
+				<from>result716080d8a8914c64b0fd1ec4d212e4f4/values/month</from>
+				<to>content</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="874624fdd0f545f086f2bd4d490bc278"
+					fixedValue="true">
+				<from>0</from>
+				<to>pad</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f915d772158643969d616eee91f2e6e3"
+					fixedValue="true">
+				<from>2</from>
+				<to>length</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="1f5d86b2fcb449939a56e6d02605871e"
+				fixedValue="false">
+			<from>result4ed668f2fb424b0eabde7e49448c72f1/padded</from>
+			<to>input/month</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="afeb583b4b88422ca469f2b620949c57"
+			label="input/number == null"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="57c773b325154f6bbe6e7652d08398d9"
+				serviceId="nabu.integrations.kbo.csv.utils.calculateNumber"
+				resultName="result763658a5933a4e439b1625ec6580aad7"
+				temporaryMapping="true"
+				x="205"
+				y="112"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e43a36e6608e4229bd6942a7ed788e97"
+					fixedValue="false">
+				<from>input/year</from>
+				<to>year</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5d515fe096d1405da037c5bcff1e4245"
+					fixedValue="false">
+				<from>input/month</from>
+				<to>month</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="df8c14822ada47a1bb930a23c92a503b"
+				fixedValue="false">
+			<from>result763658a5933a4e439b1625ec6580aad7/number</from>
+			<to>input/number</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Map login properties"
+			disabled="false"
+			id="c867f96742fa40f78e53542900064c2a"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="c14bde6d3f9b45c590c935c4b7736ae9"
+				fixedValue="false">
+			<from>input/username</from>
+			<to>username/value</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="347af6cd5d6d43a998316f5f793a1568"
+				fixedValue="false">
+			<from>input/password</from>
+			<to>password/value</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="e5113a66ff9142fa858028e22ea50aac"
+				fixedValue="true">
+			<from>j_username</from>
+			<to>username/key</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="4bfec5919a85435aa24bdd66e6b2507a"
+				fixedValue="true">
+			<from>j_password</from>
+			<to>password/key</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Log in (the http client will remember the cookies)"
+			disabled="false"
+			id="684031b72df94d0cb9f6c41f63533cf9"
+			lineNumber="5">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="e77e19a0d1b34849b1ae5d469c82b7da"
+				serviceId="nabu.protocols.http.client.Services.execute"
+				resultName="result780e4e31ec7546ae958737e4c1afd225"
+				temporaryMapping="true"
+				x="305"
+				y="202"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="a7229c88174d40988c0036619ab9e8ee"
+					fixedValue="true">
+				<from>https://kbopub.economie.fgov.be/kbo-open-data/static/j_spring_security_check</from>
+				<to>url</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="3eed1b88bb8246bf8d07999df427d461"
+					fixedValue="true">
+				<from>POST</from>
+				<to>method</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="17d0731a9e1248d1a9bf1484580c5a14"
+					fixedValue="false">
+				<from>resultfe8cdcd6a0a7429ba1a6286de92c2ad2/part</from>
+				<to>part</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="8a6f34573ff54e7d8de9f40ab07f6509"
+				serviceId="nabu.protocols.http.client.Services.newFormInput"
+				resultName="resultfe8cdcd6a0a7429ba1a6286de92c2ad2"
+				temporaryMapping="true"
+				x="23"
+				y="80"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="3bd4aa1085544761becb7cc8359fae24"
+					fixedValue="false">
+				<from>username</from>
+				<to>parameters[0]</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="50b210077ba644239b8806fe73d189c3"
+					fixedValue="false">
+				<from>password</from>
+				<to>parameters[1]</to>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
+			disabled="false"
+			id="b27c80f02b144458a82b7bb7e42f954a"
+			lineNumber="6"
+			query="input/full">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="34fbdf124fb34230afcd3e4f73fca3f0"
+				label="true"
+				lineNumber="7">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="874271a596de49c8906baba4627261eb"
+					fixedValue="true">
+				<from>Full</from>
+				<to>keyword</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="5336d787b09140209d98b25aad3df332"
+				lineNumber="8">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="513196502659444796dbd67251a892ef"
+					fixedValue="true">
+				<from>Update</from>
+				<to>keyword</to>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="e954f4a22b8c4065a7145e9adbc933c0"
+			lineNumber="9">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="24d6556bdbe2418293372ec121d37ccc"
+				serviceId="nabu.protocols.http.client.Services.execute"
+				resultName="resulta9aa4346b25648979c41f5f0dd421313"
+				temporaryMapping="true"
+				x="90"
+				y="85"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="2405bd035b814660ab3aaa77108a190f"
+					fixedValue="true">
+				<from>="https://kbopub.economie.fgov.be/kbo-open-data/affiliation/xml/files/KboOpenData_" + input/number + "_" + input/year + "_" + input/month + "_" + keyword + ".zip"</from>
+				<to>url</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="dced737f932b46d89569dac6081f582e"
+					fixedValue="true">
+				<from>GET</from>
+				<to>method</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="3fb3abae794843bfad190d88e3d662ce"
+				fixedValue="false">
+			<from>resulta9aa4346b25648979c41f5f0dd421313/response</from>
+			<to>response</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+			description="=&quot;Download failed: &quot; + response/code"
+			disabled="false"
+			id="c054dff4a88549b39023d37ce035634b"
+			label="response/code != 200"
+			lineNumber="10"
+			message="Download failed"
+			whitelist="false" xsi:nil="true"/>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="4ce646ea60214000bd85232307ea719d"
+			lineNumber="11">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="34ec0e89a5bf41debfdd01b336c8340b"
+				serviceId="nabu.data.mime.Services.getContent"
+				resultName="resulta326e93d0c4a4ca498d558f31d591a39"
+				temporaryMapping="true"
+				x="119"
+				y="110"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="4ab64d2e7c754f10a19b7ba1cc06ece5"
+					fixedValue="false">
+				<from>response/content</from>
+				<to>part</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="84c840b70e8f4fcfabec22ce5cb08c5c"
+				serviceId="nabu.frameworks.datastore.Services.store"
+				resultName="result87d5b64287a74893b8e168b4e8f14b03"
+				temporaryMapping="true"
+				x="461"
+				y="268"
+				invocationOrder="2"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="15cbd1b01b544aca85ebf241e353e100"
+					fixedValue="false">
+				<from>resulta326e93d0c4a4ca498d558f31d591a39/content</from>
+				<to>stream</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f9baa9ea5cc4457d81bf254d49f46760"
+					fixedValue="true">
+				<from>="KboOpenData_" + input/number + "_" + input/year + "_" + input/month + "_" + keyword + ".zip"</from>
+				<to>name</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="cb81b06817cf43819bb193cfc46139b7"
+					fixedValue="true">
+				<from>application/zip</from>
+				<to>contentType</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="591c8b9eaa8f46e6878e360d937af64a"
+				fixedValue="false">
+			<from>result87d5b64287a74893b8e168b4e8f14b03/uri</from>
+			<to>output/uri</to>
+		</steps>
+	</steps>
+</sequence>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-04T16:59:57.055+02:00" lastModified="2025-09-05T10:39:43.658+02:00" leaf="true" version="38">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.csv.utils.calculateNumber</references>
+    <references>nabu.frameworks.datastore.Services.store</references>
+    <references>nabu.protocols.http.client.Services.newFormInput</references>
+    <references>be.nabu.libs.types.api.KeyValuePair</references>
+    <references>nabu.data.mime.Services.getContent</references>
+    <references>nabu.utils.Date.toValues</references>
+    <references>nabu.protocols.http.client.Services.execute</references>
+    <references>nabu.utils.String.pad</references>
+    <references>be.nabu.libs.http.api.HTTPResponse</references>
+    <references>java.lang.Boolean</references>
+    <references>java.lang.String</references>
+    <references>java.net.URI</references>
+    <references>be.nabu.utils.mime.api.Header</references>
+    <references>nabu.utils.Date.incrementDuration</references>
+</node>

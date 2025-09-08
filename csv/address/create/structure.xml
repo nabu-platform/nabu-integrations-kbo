@@ -1,0 +1,15 @@
+<structure name="address">
+    <field label="EntityNumber" name="entityNumber" type="java.lang.String"/>
+    <field label="TypeOfAddress" name="typeOfAddress" type="java.lang.String"/>
+    <field label="CountryNL" minOccurs="0" name="countryNl" type="java.lang.String"/>
+    <field label="CountryFR" minOccurs="0" name="countryFr" type="java.lang.String"/>
+    <field label="Zipcode" minOccurs="0" name="zipcode" type="java.lang.String"/>
+    <field label="MunicipalityNL" name="municipalityNl" type="java.lang.String"/>
+    <field label="MunicipalityFR" name="municipalityFr" type="java.lang.String"/>
+    <field label="StreetNL" name="streetNl" type="java.lang.String"/>
+    <field label="StreetFR" name="streetFr" type="java.lang.String"/>
+    <field label="HouseNumber" name="houseNumber" type="java.lang.String"/>
+    <field label="Box" minOccurs="0" name="box" type="java.lang.String"/>
+    <field label="ExtraAddressInfo" minOccurs="0" name="extraAddressInfo" type="java.lang.String"/>
+    <field format="dd-MM-yyyy" label="DateStrikingOff" minOccurs="0" name="dateStrikingOff" type="java.util.Date"/>
+</structure>

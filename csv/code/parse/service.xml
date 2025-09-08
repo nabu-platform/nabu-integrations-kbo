@@ -1,0 +1,43 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="b9b698e7bbfb434a8e3e47477658abc5"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="f1fdbc127bec46a8bcdd725663b1bc76"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="86bb8695908747ecba2b87a46a2b4635"
+				serviceId="nabu.integrations.kbo.csv.utils.parse"
+				resultName="resulteaaeda0b73ac469194216faad163ebcb"
+				temporaryMapping="true"
+				x="107"
+				y="130"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="e683af0da8534280b5eb7bd35abb0ffe"
+					fixedValue="false">
+				<from>input/uri</from>
+				<to>uri</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="74dee5a70e144855affaa8736e5fbd06"
+					fixedValue="true">
+				<from>code</from>
+				<to>type</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="b0f1dca505cf42c081e4b550ff8dfd03"
+				fixedValue="false">
+			<from>resulteaaeda0b73ac469194216faad163ebcb/create</from>
+			<to>output/create</to>
+		</steps>
+	</steps>
+</sequence>

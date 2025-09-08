@@ -1,0 +1,4 @@
+<structure name="branchList">
+    <structure definition="nabu.integrations.kbo.csv.branch.create" maxOccurs="unbounded" minOccurs="0" name="create"/>
+    <structure definition="nabu.integrations.kbo.csv.branch.delete" maxOccurs="unbounded" minOccurs="0" name="delete"/>
+</structure>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-05T16:13:19.668+02:00" lastModified="2025-09-05T16:30:02.207+02:00" leaf="true" version="24">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.csv.address.parse</references>
+    <references>nabu.integrations.kbo.csv.contact.parse</references>
+    <references>nabu.integrations.kbo.csv.activity.list</references>
+    <references>nabu.integrations.kbo.csv.code.list</references>
+    <references>nabu.integrations.kbo.csv.code.parse</references>
+    <references>nabu.integrations.kbo.csv.address.list</references>
+    <references>nabu.integrations.kbo.csv.denomination.list</references>
+    <references>nabu.integrations.kbo.csv.contact.list</references>
+    <references>nabu.integrations.kbo.csv.establishment.parse</references>
+    <references>nabu.integrations.kbo.csv.enterprise.parse</references>
+    <references>java.lang.Boolean</references>
+    <references>nabu.integrations.kbo.csv.denomination.parse</references>
+    <references>nabu.integrations.kbo.csv.branch.list</references>
+    <references>java.net.URI</references>
+    <references>nabu.integrations.kbo.csv.activity.parse</references>
+    <references>nabu.integrations.kbo.csv.enterprise.list</references>
+    <references>nabu.integrations.kbo.csv.establishment.list</references>
+    <references>nabu.integrations.kbo.csv.branch.parse</references>
+</node>

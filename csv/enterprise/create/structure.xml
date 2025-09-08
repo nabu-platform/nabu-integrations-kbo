@@ -1,0 +1,9 @@
+<structure name="enterprise">
+    <field label="EnterpriseNumber" name="enterpriseNumber" type="java.lang.String"/>
+    <field label="Status" name="status" type="java.lang.String"/>
+    <field label="JuridicalSituation" name="juridicalSituation" type="java.lang.String"/>
+    <field label="TypeOfEnterprise" name="typeOfEnterprise" type="java.lang.String"/>
+    <field label="JuridicalForm" name="juridicalForm" type="java.lang.String"/>
+    <field label="JuridicalFormCAC" name="juridicalFormCAC" type="java.lang.String"/>
+    <field format="dd-MM-yyyy" label="StartDate" name="startDate" type="java.util.Date"/>
+</structure>

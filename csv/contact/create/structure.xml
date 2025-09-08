@@ -1,0 +1,6 @@
+<structure name="contact">
+    <field label="EntityNumber" name="entityNumber" type="java.lang.String"/>
+    <field label="EntityContact" name="entityContact" type="java.lang.String"/>
+    <field label="ContactType" name="contactType" type="java.lang.String"/>
+    <field label="Value" name="value" type="java.lang.String"/>
+</structure>

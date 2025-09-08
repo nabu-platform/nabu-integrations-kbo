@@ -1,0 +1,4 @@
+<structure name="list">
+    <structure definition="nabu.integrations.kbo.csv.activity.create" maxOccurs="unbounded" minOccurs="0" name="create"/>
+    <structure definition="nabu.integrations.kbo.csv.activity.delete" maxOccurs="unbounded" minOccurs="0" name="delete"/>
+</structure>

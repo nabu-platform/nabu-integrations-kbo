@@ -1,0 +1,5 @@
+<structure name="branch">
+    <field label="Id" name="id" type="java.lang.String"/>
+    <field format="dd-MM-yyyy" label="StartDate" name="startDate" type="java.util.Date"/>
+    <field label="EnterpriseNumber" name="enterpriseNumber" type="java.lang.String"/>
+</structure>

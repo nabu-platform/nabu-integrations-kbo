@@ -1,0 +1,5 @@
+<structure name="establishment">
+    <field label="EstablishmentNumber" name="establishmentNumber" type="java.lang.String"/>
+    <field format="dd-MM-yyyy" label="StartDate" name="startDate" type="java.util.Date"/>
+    <field label="EnterpriseNumber" name="enterpriseNumber" type="java.lang.String"/>
+</structure>

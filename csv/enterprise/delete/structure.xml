@@ -1,0 +1,3 @@
+<structure name="enterpriseDelete">
+    <field label="EnterpriseNumber" name="enterpriseNumber" type="java.lang.String"/>
+</structure>

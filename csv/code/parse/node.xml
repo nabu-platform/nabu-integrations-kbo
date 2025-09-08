@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-05T10:39:24.821+02:00" lastModified="2025-09-05T12:49:15.324+02:00" leaf="true" version="32">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.csv.utils.parse</references>
+    <references>be.nabu.libs.types.binding.api.Window</references>
+    <references>java.net.URI</references>
+    <references>nabu.integrations.kbo.csv.code.create</references>
+    <references>nabu.integrations.kbo.csv.address.list</references>
+</node>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wsdlClient>
+    <endpoint>https://kbopub-acc.economie.fgov.be/kbopubws110000/services/wsKBOPub</endpoint>
+    <stringsOnly>false</stringsOnly>
+    <timezone>UTC</timezone>
+    <wsSecurity>PasswordDigest</wsSecurity>
+    <wsSecurityTimeout>
+        <days>0</days>
+        <hours>0</hours>
+        <minutes>5</minutes>
+        <months>0</months>
+        <negative>false</negative>
+        <seconds>0.0</seconds>
+        <years>0</years>
+    </wsSecurityTimeout>
+</wsdlClient>

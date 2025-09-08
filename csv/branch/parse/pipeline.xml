@@ -1,0 +1,13 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="uri" type="java.net.URI"/>
+    </structure>
+    <structure name="output">
+        <structure definition="nabu.integrations.kbo.csv.branch.create" maxOccurs="unbounded" minOccurs="0" name="create"/>
+        <structure definition="nabu.integrations.kbo.csv.branch.delete" maxOccurs="unbounded" minOccurs="0" name="delete"/>
+    </structure>
+    <field maxOccurs="unbounded" minOccurs="0" name="files" type="java.net.URI"/>
+    <structure definition="nabu.integrations.kbo.csv.branch.list" name="list"/>
+    <structure definition="be.nabu.libs.types.binding.api.Window" minOccurs="0" name="windowCreate"/>
+    <structure definition="be.nabu.libs.types.binding.api.Window" minOccurs="0" name="windowDelete"/>
+</structure>
