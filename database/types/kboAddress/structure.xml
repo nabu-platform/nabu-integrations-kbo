@@ -1,0 +1,15 @@
+<structure collectionName="kboAddresses" name="kboAddress" superType="nabu.integrations.kbo.database.core">
+    <field foreignKey="nabu.integrations.kbo.database.types.kboEnterprise:id" indexed="true" name="enterpriseId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field foreignKey="nabu.integrations.kbo.database.types.kboEstablishment:id" indexed="true" minOccurs="0" name="establishmentId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field foreignKey="nabu.integrations.kbo.database.types.kboCode:id" name="addressTypeId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field minOccurs="0" name="countryNl" type="java.lang.String"/>
+    <field minOccurs="0" name="countryFr" type="java.lang.String"/>
+    <field minOccurs="0" name="zipcode" type="java.lang.String"/>
+    <field minOccurs="0" name="municipalityNl" type="java.lang.String"/>
+    <field minOccurs="0" name="municipalityFr" type="java.lang.String"/>
+    <field minOccurs="0" name="streetNl" type="java.lang.String"/>
+    <field minOccurs="0" name="streetFr" type="java.lang.String"/>
+    <field minOccurs="0" name="streetNumber" type="java.lang.String"/>
+    <field minOccurs="0" name="box" type="java.lang.String"/>
+    <field minOccurs="0" name="extra" type="java.lang.String"/>
+</structure>

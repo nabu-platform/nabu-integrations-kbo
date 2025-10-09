@@ -1,0 +1,57 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="4b96d4bf55784a34b7e4adcd032b0639"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="92e5e2cb1b0a42bfb0820e05b0ec55ff"
+			lineNumber="2"
+			variable="delete"
+			into="establishmentDelete">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="b91e161403f14eb2a1c4c59edda15588"
+				lineNumber="3">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f84694fa782e40a594817c67bb0ae755"
+					fixedValue="false">
+				<from>delete/id</from>
+				<to>establishmentDelete[0]/establishmentNumber</to>
+			</steps>
+		</steps>
+		<query>input/delete</query>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="9c9ddb9ac4914cc5a2f81ca350466e2e"
+			label="establishmentDelete"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="0fe3df5b362f4814ac48417df14eb200"
+				serviceId="nabu.integrations.kbo.persist.establishment.delete"
+				resultName="result5548a311f45946668d2ff83c24da8bf2"
+				temporaryMapping="true"
+				x="213"
+				y="102"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="af1987c9320248ba93fd67879a750e51"
+					fixedValue="false">
+				<from>establishmentDelete</from>
+				<to>delete</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="1a1982706d464a59bfd638a243a59cb2"
+					fixedValue="true">
+				<from>true</from>
+				<to>branch</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

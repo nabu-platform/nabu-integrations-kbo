@@ -1,0 +1,290 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="65838ffa9a044087bef69babf2082ba6"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="7f054469a18c4f6c97ab234dd3466a9a"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="852c420ab1bc4363aa8609c80635fc52"
+				serviceId="nabu.integrations.kbo.csv.utils.parse"
+				resultName="result9c4cd37cb6504d509065e46ae81ba304"
+				temporaryMapping="true"
+				x="204"
+				y="75"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="12094b897ffd4b33b200d8e776d65e9e"
+					fixedValue="false">
+				<from>input/content</from>
+				<to>uri</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="8999da354ce7461aac8ed62fef749def"
+					fixedValue="false">
+				<from>input/type</from>
+				<to>type</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="1648ffd954c442cc9aa1ce828fdddeca"
+				fixedValue="false">
+			<from>result9c4cd37cb6504d509065e46ae81ba304/create</from>
+			<to>create</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="bb3ed9f5be934790a2b78352bf90ad0b"
+				fixedValue="false">
+			<from>result9c4cd37cb6504d509065e46ae81ba304/delete</from>
+			<to>delete</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Set batch parameters"
+			disabled="false"
+			id="2c24dfb0e6e64ca3b6205d50458a8a53"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="a7e41b3188c94627a5fd05ace177076f"
+				fixedValue="true">
+			<from>10000</from>
+			<to>batchSize</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="9967ca46ca0844978f9269d6ce1f4d41"
+				fixedValue="true">
+			<from>0</from>
+			<to>offset</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="67b6d068298b4923b705babd570ded4c"
+			lineNumber="4"
+			variable="deleteBatch"
+			batchSize="batchSize">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Increment with batch size"
+				disabled="false"
+				id="bda7b0af376144c58ece604b87c966a1"
+				lineNumber="5">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5d3671f46b124e1c950f4826f95c3722"
+					fixedValue="true">
+				<from>=offset + batchSize</from>
+				<to>offset</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Break"
+				comment="Already processed"
+				disabled="false"
+				id="340016339e184fc091491c8388305592"
+				label="input/deleteOffset != null &amp;&amp; offset &lt;= input/deleteOffset"
+				lineNumber="6">
+			<count>1</count>
+			<continueExecution>true</continueExecution>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+				comment="Scope transaction"
+				disabled="false"
+				id="70509ca8e7234b0f9fb307e731c6a289"
+				lineNumber="7"
+				scopeDefaultTransaction="true">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					disabled="false"
+					id="c927dc64f3e64a9db54cbe755f6394b0"
+					lineNumber="8">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="bdb5d2a4817b4523ab82e025154b0acb"
+						serviceId="nabu.integrations.kbo.persist.processDelete"
+						resultName="result33166c631233466a8a3ac44926648d67"
+						temporaryMapping="true"
+						x="254"
+						y="87"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="3523decf854e4f26b20b8a299b9bfa24"
+							fixedValue="false">
+						<from>deleteBatch</from>
+						<to>delete</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="9036db4e15154905b2a7019b25416ff5"
+							fixedValue="true">
+						<from>="nabu.integrations.kbo.persist." + input/type + ".delete"</from>
+						<to>implementationId</to>
+					</steps>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Update the offset within the transaction so we don't reprocess"
+					disabled="false"
+					id="0990213ab9e74ffebfe1f1d391188cf7"
+					lineNumber="9">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="521723dd33904e5797a3480d1c736854"
+						serviceId="nabu.integrations.kbo.persist.updateTaskDeleteOffset"
+						resultName="result0bd653437eb447ea941c62f33860975d"
+						temporaryMapping="true"
+						x="156"
+						y="30"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="ed5fc7b171f143c38aecf8af0fb3bc42"
+							fixedValue="false">
+						<from>offset</from>
+						<to>parameters[0]/offset</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="9d773b60bec7415f88b8db702aa4811c"
+							fixedValue="false">
+						<from>input/taskId</from>
+						<to>parameters[0]/taskId</to>
+					</steps>
+				</steps>
+			</steps>
+		</steps>
+		<query>delete</query>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Set batch parameters"
+			disabled="false"
+			id="1dd5c35a53cc418a8ef634b5aa7f1ce7"
+			lineNumber="10">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="079c4cd301e945f2a00f84d29892e55a"
+				fixedValue="true">
+			<from>10000</from>
+			<to>batchSize</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="1c419f41bb5d4ea186dfcbc20d407196"
+				fixedValue="true">
+			<from>0</from>
+			<to>offset</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="4765b4f0a6f54298bfc3b31245b89b54"
+			lineNumber="11"
+			variable="createBatch"
+			batchSize="batchSize">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Increment with batch size"
+				disabled="false"
+				id="d2903c50a3a741ebb9f635feab0db0fa"
+				lineNumber="12">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="93ac0d4432db45ecad256e206fd0d8e8"
+					fixedValue="true">
+				<from>=offset + batchSize</from>
+				<to>offset</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Break"
+				comment="Already processed"
+				disabled="false"
+				id="cae8cd456b5147f39883a88137b083f6"
+				label="input/createOffset != null &amp;&amp; offset &lt;= input/createOffset"
+				lineNumber="13">
+			<count>1</count>
+			<continueExecution>true</continueExecution>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+				comment="Scope transaction"
+				disabled="false"
+				id="8fb925733bdf4b378a22105f64204240"
+				lineNumber="14"
+				scopeDefaultTransaction="true">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					disabled="false"
+					id="02e05a4326b443ec9f66c17a24322cdf"
+					lineNumber="15">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="389f78b8a5ae4aaa89ec04d61d495d92"
+						serviceId="nabu.integrations.kbo.persist.processCreate"
+						resultName="result49ac03316dad45199f1ecda90ecdf25c"
+						temporaryMapping="true"
+						x="167"
+						y="81"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="43c16494868648b2962ab31f4dda2368"
+							fixedValue="true">
+						<from>="nabu.integrations.kbo.persist." + input/type + ".create"</from>
+						<to>implementationId</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="ef91effa386f49ab8c34d3fbba689e47"
+							fixedValue="false">
+						<from>createBatch</from>
+						<to>create</to>
+					</steps>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Update the offset within the transaction so we don't reprocess"
+					disabled="false"
+					id="f7156f107b5248458ddef58be876177a"
+					lineNumber="16">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="899d14f722ef44f3ad4a6e6ea9faf78f"
+						serviceId="nabu.integrations.kbo.persist.updateTaskCreateOffset"
+						resultName="resultdf8344fadea149bbbfa933bf0215ef18"
+						temporaryMapping="true"
+						x="297"
+						y="120"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="5b3c559b8d074096932ff07c370a9612"
+							fixedValue="false">
+						<from>offset</from>
+						<to>parameters[0]/offset</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="beb189133a484a50a97bd25c9ce7b656"
+							fixedValue="false">
+						<from>input/taskId</from>
+						<to>parameters[0]/taskId</to>
+					</steps>
+				</steps>
+			</steps>
+		</steps>
+		<query>create</query>
+	</steps>
+</sequence>

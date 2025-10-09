@@ -1,0 +1,14 @@
+<structure interface="nabu.integrations.kbo.persist.processCreate" name="pipeline">
+    <structure name="input" restrict="create">
+        <structure definition="nabu.integrations.kbo.csv.code.create" maxOccurs="unbounded" name="create"/>
+    </structure>
+    <structure name="output"/>
+    <field maxOccurs="unbounded" name="requiredCategories" type="java.lang.String"/>
+    <structure collectionName="kboCategories" definition="nabu.integrations.kbo.database.types.kboCategory" maxOccurs="unbounded" minOccurs="0" name="existingCategories"/>
+    <structure definition="nabu.integrations.kbo.persist.code.groupedCode" maxOccurs="unbounded" minOccurs="0" name="groupedCodes"/>
+    <structure collectionName="kboCategories" definition="nabu.integrations.kbo.database.types.kboCategory" minOccurs="0" name="category"/>
+    <structure collectionName="kboCodes" definition="nabu.integrations.kbo.database.types.kboCode" maxOccurs="unbounded" minOccurs="0" name="existingEntries"/>
+    <field maxOccurs="unbounded" name="requiredEntries" type="java.lang.String"/>
+    <field minOccurs="0" name="date" type="java.util.Date"/>
+    <structure collectionName="kboCodes" definition="nabu.integrations.kbo.database.types.kboCode" minOccurs="0" name="entry"/>
+</structure>

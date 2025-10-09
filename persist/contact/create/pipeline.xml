@@ -1,0 +1,14 @@
+<structure interface="nabu.integrations.kbo.persist.processCreate" name="pipeline">
+    <structure name="input" restrict="create">
+        <structure definition="nabu.integrations.kbo.csv.contact.create" maxOccurs="unbounded" name="create"/>
+    </structure>
+    <structure name="output"/>
+    <structure collectionName="kboEstablishments" definition="nabu.integrations.kbo.crud.establishment.types.output" enricher="nabu.integrations.kbo.crud.establishment.services.list" maxOccurs="unbounded" minOccurs="0" name="establishments" persister="nabu.integrations.kbo.crud.establishment.batch.updateAll"/>
+    <structure collectionName="kboEnterprises" definition="nabu.integrations.kbo.crud.enterprise.types.output" enricher="nabu.integrations.kbo.crud.enterprise.services.list" maxOccurs="unbounded" minOccurs="0" name="enterprises" persister="nabu.integrations.kbo.crud.enterprise.batch.updateAll"/>
+    <structure collectionName="kboEstablishments" definition="nabu.integrations.kbo.crud.establishment.types.output" enricher="nabu.integrations.kbo.crud.establishment.services.list" minOccurs="0" name="establishment" persister="nabu.integrations.kbo.crud.establishment.batch.updateAll"/>
+    <structure collectionName="kboEnterprises" definition="nabu.integrations.kbo.crud.enterprise.types.output" enricher="nabu.integrations.kbo.crud.enterprise.services.list" minOccurs="0" name="enterprise" persister="nabu.integrations.kbo.crud.enterprise.batch.updateAll"/>
+    <structure collectionName="kboContacts" definition="nabu.integrations.kbo.database.types.kboContact" maxOccurs="unbounded" minOccurs="0" name="contacts"/>
+    <field minOccurs="0" name="date" type="java.util.Date"/>
+    <structure collectionHandler="stringMap" definition="java.util.Map" minOccurs="0" name="establishmentHash"/>
+    <structure collectionHandler="stringMap" definition="java.util.Map" minOccurs="0" name="enterpriseHash"/>
+</structure>

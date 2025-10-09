@@ -1,0 +1,14 @@
+<structure name="named" superType="nabu.integrations.kbo.database.core">
+    <field minOccurs="0" name="nameNl" type="java.lang.String"/>
+    <field minOccurs="0" name="nameFr" type="java.lang.String"/>
+    <field minOccurs="0" name="nameDe" type="java.lang.String"/>
+    <field minOccurs="0" name="nameEn" type="java.lang.String"/>
+    <field minOccurs="0" name="abbreviationNl" type="java.lang.String"/>
+    <field minOccurs="0" name="abbreviationFr" type="java.lang.String"/>
+    <field minOccurs="0" name="abbreviationDe" type="java.lang.String"/>
+    <field minOccurs="0" name="abbreviationEn" type="java.lang.String"/>
+    <field minOccurs="0" name="commercialNameNl" type="java.lang.String"/>
+    <field minOccurs="0" name="commercialNameFr" type="java.lang.String"/>
+    <field minOccurs="0" name="commercialNameDe" type="java.lang.String"/>
+    <field minOccurs="0" name="commercialNameEn" type="java.lang.String"/>
+</structure>

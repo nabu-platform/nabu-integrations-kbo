@@ -1,0 +1,10 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="category" type="java.lang.String"/>
+        <field minOccurs="0" name="code" type="java.lang.String"/>
+    </structure>
+    <structure name="output">
+        <structure collectionName="kboCodes" definition="nabu.integrations.kbo.database.types.kboCode" minOccurs="0" name="code"/>
+    </structure>
+    <structure collectionName="kboCategories" definition="nabu.integrations.kbo.crud.category.types.output" enricher="nabu.integrations.kbo.crud.category.services.list" minOccurs="0" name="category" persister="nabu.integrations.kbo.crud.category.batch.updateAll"/>
+</structure>

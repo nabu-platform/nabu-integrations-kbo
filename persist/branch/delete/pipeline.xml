@@ -1,0 +1,7 @@
+<structure interface="nabu.integrations.kbo.persist.processDelete" name="pipeline">
+    <structure name="input" restrict="delete">
+        <structure definition="nabu.integrations.kbo.csv.branch.delete" maxOccurs="unbounded" name="delete"/>
+    </structure>
+    <structure name="output"/>
+    <structure definition="nabu.integrations.kbo.csv.establishment.delete" maxOccurs="unbounded" name="establishmentDelete"/>
+</structure>

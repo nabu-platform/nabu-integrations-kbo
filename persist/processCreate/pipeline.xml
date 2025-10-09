@@ -1,0 +1,6 @@
+<structure name="pipeline">
+    <structure name="input">
+        <structure definition="java.lang.Object" maxOccurs="unbounded" name="create"/>
+    </structure>
+    <structure name="output"/>
+</structure>

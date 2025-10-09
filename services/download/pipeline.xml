@@ -1,0 +1,35 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="username" type="java.lang.String"/>
+        <field name="password" type="java.lang.String"/>
+        <field minOccurs="0" name="activity" type="java.lang.Boolean"/>
+        <field minOccurs="0" name="address" type="java.lang.Boolean"/>
+        <field minOccurs="0" name="contact" type="java.lang.Boolean"/>
+    </structure>
+    <structure name="output"/>
+    <field comment="Whether or not to do a full download" name="full" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="fullActivity" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="fullAddress" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="fullContact" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="fullCode" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="fullBranch" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="fullDenomination" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="fullEnterprise" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="fullEstablishment" type="java.lang.Boolean"/>
+    <structure collectionName="kboDownloads" definition="nabu.integrations.kbo.crud.download.types.output" enricher="nabu.integrations.kbo.crud.download.services.list" maxOccurs="unbounded" minOccurs="0" name="fullDownloads" persister="nabu.integrations.kbo.crud.download.batch.updateAll"/>
+    <field comment="Whether or not to do a full download" name="update" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="updateActivity" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="updateAddress" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="updateContact" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="updateCode" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="updateBranch" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="updateDenomination" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="updateEnterprise" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="updateEstablishment" type="java.lang.Boolean"/>
+    <field name="fullUri" type="java.net.URI"/>
+    <field name="updateUri" type="java.net.URI"/>
+    <structure collectionName="kboDownloads" definition="nabu.integrations.kbo.database.types.kboDownload" name="downloadEntry"/>
+    <field minOccurs="0" name="fullDownloadId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field minOccurs="0" name="updateDownloadId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <structure collectionName="kboDownloads" definition="nabu.integrations.kbo.crud.download.types.output" enricher="nabu.integrations.kbo.crud.download.services.list" maxOccurs="unbounded" minOccurs="0" name="unprocessedDownloads" persister="nabu.integrations.kbo.crud.download.batch.updateAll"/>
+</structure>

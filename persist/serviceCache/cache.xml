@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cache>
+    <cacheProvider>nabu.integrations.kbo.persist.memoryCache</cacheProvider>
+    <service>nabu.integrations.kbo.persist.code.list</service>
+    <service>nabu.integrations.kbo.persist.code.get</service>
+    <enableInDevelopment>true</enableInDevelopment>
+</cache>

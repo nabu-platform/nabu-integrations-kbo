@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T15:36:37.583+02:00" lastModified="2025-09-23T15:56:47.797+02:00" leaf="true" version="10">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.csv.establishment.delete</references>
+    <references>nabu.services.jdbc.Services.update</references>
+    <references>nabu.integrations.kbo.database.types.kboEstablishment</references>
+    <references>java.util.Date</references>
+    <references>nabu.utils.Date.now</references>
+    <references>nabu.integrations.kbo.crud.establishment.types.output</references>
+    <references>java.lang.Boolean</references>
+    <references>java.lang.Object</references>
+    <references>java.lang.String</references>
+    <references>nabu.integrations.kbo.crud.establishment.services.list</references>
+    <references>nabu.integrations.kbo.persist.processDelete</references>
+</node>

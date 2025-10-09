@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-22T14:43:01.295+02:00" lastModified="2025-09-25T11:34:06.936+02:00" leaf="true" version="15">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.database.types.kboCode</references>
+    <references>nabu.integrations.kbo.crud.code.services.create</references>
+    <references>nabu.utils.Date.now</references>
+    <references>nabu.integrations.kbo.persist.code.list</references>
+    <references>nabu.integrations.kbo.crud.category.types.output</references>
+    <references>java.lang.String</references>
+    <references>nabu.integrations.kbo.database.core</references>
+    <references>nabu.integrations.kbo.database.types.kboCategory</references>
+    <references>java.util.UUID</references>
+    <references>nabu.integrations.kbo.crud.category.services.list</references>
+</node>

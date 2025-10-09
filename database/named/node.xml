@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2025-09-22T13:34:44.463+02:00" lastModified="2025-09-25T09:23:32.489+02:00" leaf="true" version="7">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.database.core</references>
+    <references>java.lang.String</references>
+</node>

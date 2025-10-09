@@ -1,0 +1,77 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="5b108842-a749-4e61-9c40-7fdee84e5b3e"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="3f2e7f1a-12e1-4e03-b79b-68a39d5681a5"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="1d689e7d-49cd-44e5-b96f-0d8a9795a606"
+				serviceId="nabu.utils.String.replace"
+				resultName="result656b460feb97444ca7e2a7f0429a9082"
+				temporaryMapping="true"
+				x="369"
+				y="311"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="15c1c2b6-ec82-4fdf-bcb3-936f5ef67b53"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>([\w]{8})([\w]{4})([\w]{4})([\w]{4})(.*)</from>
+				<to>match</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c8c51a9d-96ad-404a-9402-36f9c6d100bf"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>$1-$2-$3-$4-$5</from>
+				<to>replace</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ce745fa1-d4dd-464d-98d3-252252c776d9"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>true</from>
+				<to>useRegex</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="eb754875-385e-4049-a72d-f29fe0c3f492"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultc926f2c20b8b4eb78dc7e40605d6ad02/uuid</from>
+				<to>content</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="50c0758a-015c-49ce-8c18-274aa9f2d10c"
+				serviceId="nabu.utils.Server.uuid"
+				resultName="resultc926f2c20b8b4eb78dc7e40605d6ad02"
+				temporaryMapping="true"
+				x="81"
+				y="169"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="193ac9d061dc44a8b649e6e3e38170c6"
+				fixedValue="false">
+			<from>result656b460feb97444ca7e2a7f0429a9082/content</from>
+			<to>output/requestId</to>
+		</steps>
+	</steps>
+</sequence>

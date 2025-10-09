@@ -1,0 +1,4 @@
+<structure name="parameter">
+    <field minOccurs="0" name="stopped" timezone="UTC" type="java.util.Date"/>
+    <field name="taskId" type="java.util.UUID"/>
+</structure>

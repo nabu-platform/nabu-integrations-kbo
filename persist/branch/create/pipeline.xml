@@ -1,0 +1,7 @@
+<structure interface="nabu.integrations.kbo.persist.processCreate" name="pipeline">
+    <structure name="input" restrict="create">
+        <structure definition="nabu.integrations.kbo.csv.branch.create" maxOccurs="unbounded" name="create"/>
+    </structure>
+    <structure name="output"/>
+    <structure definition="nabu.integrations.kbo.csv.establishment.create" maxOccurs="unbounded" name="enterpriseCreate"/>
+</structure>

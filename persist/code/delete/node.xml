@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T10:57:01.364+02:00" lastModified="2025-09-23T10:57:49.227+02:00" leaf="true" version="4">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>java.lang.Object</references>
+    <references>nabu.integrations.kbo.persist.processDelete</references>
+</node>

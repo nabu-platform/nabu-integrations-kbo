@@ -342,6 +342,12 @@ Relevant masterdata:
 "TypeOfAddress","REGO","NL","Zetel"
 ```
 
+It seems that the "dateStrikingOff" means the address is no longer valid since that date. It is merely maintained for historical correctness.
+Because we handle delete delta's by "soft deleting", this creates a natural deletion timestamp which is why we don't have an additional field.
+
+Note however that in the initial load we can choose to sync the already inactive as well or only start with active ones.
+When "updating" they will delete the address and reinsert it with a dateStrikingOff. This date _is_ a more precise date for deletion than what we have (which is either the time of running or the date in the meta file) so we should still get that to register a more precise delete statement.
+
 ### activity.csv
 
 Size: 1.6gb

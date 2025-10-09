@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2022-11-23T09:50:21.526+01:00" lastModified="2025-09-22T09:38:49.855+02:00" leaf="true" version="12">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.utils.String.replace</references>
+    <references>nabu.utils.Server.uuid</references>
+</node>

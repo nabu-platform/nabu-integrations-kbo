@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T10:28:54.581+02:00" lastModified="2025-09-24T17:45:00.819+02:00" leaf="true" version="48">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.csv.utils.parse</references>
+    <references>java.lang.Long</references>
+    <references>nabu.integrations.kbo.persist.updateTaskDeleteOffset</references>
+    <references>nabu.integrations.kbo.persist.updateTaskCreateOffset</references>
+    <references>java.lang.Object</references>
+    <references>java.util.UUID</references>
+    <references>java.net.URI</references>
+    <references>java.lang.String</references>
+    <references>nabu.integrations.kbo.persist.processDelete</references>
+    <references>nabu.integrations.kbo.persist.processCreate</references>
+</node>

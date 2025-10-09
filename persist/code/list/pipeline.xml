@@ -1,0 +1,8 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="category" type="java.lang.String"/>
+    </structure>
+    <structure name="output">
+        <structure collectionName="kboCodes" definition="nabu.integrations.kbo.database.types.kboCode" maxOccurs="unbounded" minOccurs="0" name="codes"/>
+    </structure>
+</structure>

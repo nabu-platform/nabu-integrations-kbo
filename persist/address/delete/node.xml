@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T15:36:37.583+02:00" lastModified="2025-09-23T16:44:23.623+02:00" leaf="true" version="8">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.crud.address.services.list</references>
+    <references>nabu.integrations.kbo.csv.address.delete</references>
+    <references>nabu.services.jdbc.Services.update</references>
+    <references>java.util.Date</references>
+    <references>nabu.utils.Date.now</references>
+    <references>java.lang.Object</references>
+    <references>nabu.integrations.kbo.database.types.kboAddress</references>
+    <references>java.lang.String</references>
+    <references>nabu.integrations.kbo.crud.address.types.output</references>
+    <references>nabu.integrations.kbo.persist.processDelete</references>
+</node>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T10:24:01.490+02:00" lastModified="2025-09-24T17:47:53.195+02:00" leaf="true" version="29">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.persist.processTask</references>
+    <references>nabu.integrations.kbo.crud.downloadTask.types.output</references>
+    <references>nabu.integrations.kbo.crud.downloadTask.services.list</references>
+    <references>nabu.integrations.kbo.persist.updateDownloadProcessed</references>
+    <references>nabu.utils.Date.now</references>
+    <references>nabu.integrations.kbo.database.types.kboDownloadTask</references>
+    <references>nabu.integrations.kbo.persist.startTask</references>
+    <references>nabu.utils.List.unique</references>
+    <references>java.util.UUID</references>
+    <references>java.net.URI</references>
+    <references>nabu.integrations.kbo.database.types.kboDownload</references>
+    <references>nabu.integrations.kbo.persist.stopTask</references>
+</node>

@@ -1,0 +1,3 @@
+<jdbcService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<sql>update ~kbo_download_tasks set started = :started where id = :taskId</sql>
+</jdbcService>

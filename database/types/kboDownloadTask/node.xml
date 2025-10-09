@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2025-09-23T09:44:11.281+02:00" lastModified="2025-09-24T10:37:10.733+02:00" leaf="true" version="20">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>java.util.UUID</references>
+    <references>nabu.integrations.kbo.database.types.kboDownload</references>
+    <references>java.util.Date</references>
+    <references>java.lang.Long</references>
+    <references>java.lang.String</references>
+</node>

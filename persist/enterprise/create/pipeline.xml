@@ -1,0 +1,11 @@
+<structure interface="nabu.integrations.kbo.persist.processCreate" name="pipeline">
+    <structure name="input" restrict="create">
+        <structure definition="nabu.integrations.kbo.csv.enterprise.create" maxOccurs="unbounded" name="create"/>
+    </structure>
+    <structure name="output"/>
+    <structure collectionName="kboEnterprises" definition="nabu.integrations.kbo.crud.enterprise.types.output" enricher="nabu.integrations.kbo.crud.enterprise.services.list" maxOccurs="unbounded" minOccurs="0" name="existingEnterprises" persister="nabu.integrations.kbo.crud.enterprise.batch.updateAll"/>
+    <field minOccurs="0" name="date" type="java.util.Date"/>
+    <structure collectionName="kboEnterprises" definition="nabu.integrations.kbo.crud.enterprise.types.output" enricher="nabu.integrations.kbo.crud.enterprise.services.list" minOccurs="0" name="existingEnterprise" persister="nabu.integrations.kbo.crud.enterprise.batch.updateAll"/>
+    <structure collectionHandler="stringMap" definition="java.util.Map" minOccurs="0" name="hashed"/>
+    <structure collectionName="kboEnterprises" definition="nabu.integrations.kbo.crud.enterprise.types.output" enricher="nabu.integrations.kbo.crud.enterprise.services.list" maxOccurs="unbounded" minOccurs="0" name="newEnterprises" persister="nabu.integrations.kbo.crud.enterprise.batch.updateAll"/>
+</structure>

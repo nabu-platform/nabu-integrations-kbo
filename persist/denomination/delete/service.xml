@@ -1,0 +1,11 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="4b96d4bf55784a34b7e4adcd032b0639"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Do nothing, either we keep the old version for clarity or receive a new version which will override the old one"
+			disabled="false"
+			id="1ca40c09d7904ba2b1c1d0028e675563"
+			lineNumber="2">
+	</steps>
+</sequence>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2025-09-22T13:27:16.032+02:00" lastModified="2025-09-23T11:43:56.417+02:00" leaf="true" version="21">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>java.util.UUID</references>
+    <references>java.util.Date</references>
+    <references>java.lang.String</references>
+    <references>java.lang.Boolean</references>
+    <references>java.net.URI</references>
+</node>

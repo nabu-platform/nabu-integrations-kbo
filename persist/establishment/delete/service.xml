@@ -1,0 +1,141 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="4b96d4bf55784a34b7e4adcd032b0639"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Set default"
+			disabled="false"
+			id="aa62637cb4514c10b023651d88c9529f"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="d13e54f5d1744c89a6f187956a80c703"
+				optional="true"
+				fixedValue="true">
+			<from>false</from>
+			<to>input/branch</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="484880073ee0430ca724d7ab8118d0c2"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="b1c12e6f13154c19bac13b9621002f57"
+				serviceId="nabu.integrations.kbo.crud.establishment.services.list"
+				resultName="result204c311e16664b8683a511b2476925b1"
+				temporaryMapping="true"
+				x="34"
+				y="72"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="9e99af1dc0504985ada15c5d01a3b1b6"
+					fixedValue="false">
+				<from>input/branch</from>
+				<to>filter/branch</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="0dba4f69d0474b74adefd88f9ad1915d"
+					fixedValue="true">
+				<from>true</from>
+				<to>filter/active</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="24dba57c5a0b448e9b5508369bb3e9d8"
+					fixedValue="false">
+				<from>input/delete/establishmentNumber</from>
+				<to>filter/establishmentNumber</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="38a9cdc8860245ef97079a4a51581dea"
+				fixedValue="false">
+			<from>result204c311e16664b8683a511b2476925b1/results</from>
+			<to>establishments</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="9a927a38ea634d87ac1bcac2fcd1afbb"
+				serviceId="nabu.utils.Date.now"
+				resultName="result77389fab5fa34d9baeb14e4b3aff06ad"
+				temporaryMapping="true"
+				x="251"
+				y="247"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="936ea1cf214e428f8e2d822c688d6c82"
+				fixedValue="false">
+			<from>result77389fab5fa34d9baeb14e4b3aff06ad/date</from>
+			<to>date</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="cb9b08d1e2804cae803d1ae8dba678c2"
+			lineNumber="4"
+			variable="delete">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="d91b02c5e874419e93206b957a98019b"
+				lineNumber="5">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="40601f2a28e54f19b0abe569e01b9686"
+					fixedValue="false">
+				<from>date</from>
+				<to>delete/deleted</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="7e998248a92e4fbaab6d74ef15f65110"
+					fixedValue="false">
+				<from>date</from>
+				<to>delete/modified</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="42fa90e6880740a893b1ce8e04a70125"
+					fixedValue="true">
+				<from>false</from>
+				<to>delete/active</to>
+			</steps>
+		</steps>
+		<query>establishments</query>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="9d92633c76e649ac806e0b0bdcb5a3af"
+			label="establishments"
+			lineNumber="6">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="4f6baa966ad84829afda2987e3fcb6b4"
+				serviceId="nabu.services.jdbc.Services.update"
+				resultName="resulta9477b7e647e4fd8b1a2eaa90134c85e"
+				temporaryMapping="true"
+				x="65"
+				y="30"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="65f993858d4c493d8e852a74c06f6690"
+					fixedValue="false">
+				<from>establishments</from>
+				<to>instances</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

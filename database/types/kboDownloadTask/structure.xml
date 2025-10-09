@@ -1,0 +1,10 @@
+<structure collectionName="kboDownloadTasks" name="kboDownloadTask">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field foreignKey="nabu.integrations.kbo.database.types.kboDownload:id" indexed="true" name="downloadId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field minOccurs="0" name="started" timezone="UTC" type="java.util.Date"/>
+    <field minOccurs="0" name="stopped" timezone="UTC" type="java.util.Date"/>
+    <field comment="Tasks are processed in order of creation" generated="true" name="taskIndex" type="java.lang.Long"/>
+    <field comment="The topic to sync (e.g. activity, enterprise....)" name="topic" type="java.lang.String"/>
+    <field comment="The current offset that has already been processed for creates" minOccurs="0" name="createOffset" type="java.lang.Long"/>
+    <field comment="The current offset that has already been processed for deletes" minOccurs="0" name="deleteOffset" type="java.lang.Long"/>
+</structure>

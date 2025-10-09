@@ -1,0 +1,486 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="2ebb36eb51e4453ea094942aaf439e01"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Set default"
+			disabled="false"
+			id="aa62637cb4514c10b023651d88c9529f"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="d13e54f5d1744c89a6f187956a80c703"
+				optional="true"
+				fixedValue="true">
+			<from>false</from>
+			<to>input/branch</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Get existing"
+			disabled="false"
+			id="484880073ee0430ca724d7ab8118d0c2"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="b1c12e6f13154c19bac13b9621002f57"
+				serviceId="nabu.integrations.kbo.crud.establishment.services.list"
+				resultName="result204c311e16664b8683a511b2476925b1"
+				temporaryMapping="true"
+				x="34"
+				y="72"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="9e99af1dc0504985ada15c5d01a3b1b6"
+					fixedValue="false">
+				<from>input/branch</from>
+				<to>filter/branch</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b45740b6ca5c4d979450c8751d5bce51"
+					fixedValue="false">
+				<from>input/create/establishmentNumber</from>
+				<to>filter/establishmentNumber</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="38a9cdc8860245ef97079a4a51581dea"
+				fixedValue="false">
+			<from>result204c311e16664b8683a511b2476925b1/results</from>
+			<to>existingEstablishments</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="9a927a38ea634d87ac1bcac2fcd1afbb"
+				serviceId="nabu.utils.Date.now"
+				resultName="result77389fab5fa34d9baeb14e4b3aff06ad"
+				temporaryMapping="true"
+				x="486"
+				y="199"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="72b89d347f8e49629e87ea5bd6f3ca4b"
+				fixedValue="false">
+			<from>result77389fab5fa34d9baeb14e4b3aff06ad/date</from>
+			<to>date</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="d97fced30e724ac0a84358b4507925df"
+				serviceId="nabu.integrations.kbo.crud.enterprise.services.list"
+				resultName="resultdbda257d737a4fe1897065d58aca2798"
+				temporaryMapping="true"
+				x="33"
+				y="307"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="0fdd06d0aaf64b4eb49441cd4cf38d7b"
+					fixedValue="false">
+				<from>input/create/enterpriseNumber</from>
+				<to>filter/enterpriseNumber</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="f8d530fb3de9488490a871f2e2a95cca"
+				fixedValue="false">
+			<from>resultdbda257d737a4fe1897065d58aca2798/results</from>
+			<to>enterprises</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Create hashes"
+			disabled="false"
+			id="9a876cc08289488bb6e073b21642be0c"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="9126a185684d4d7eb1f1fe85162b1fb4"
+				serviceId="nabu.utils.List.hash"
+				resultName="result4624e366a3eb428c9a2ee1737fca5156"
+				temporaryMapping="true"
+				x="153"
+				y="131"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="33f11056461647af8b8a5295ab55ef60"
+					fixedValue="false">
+				<from>existingEstablishments</from>
+				<to>objects</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ba5bb1dd45bc49fda89dc137f57a7aff"
+					fixedValue="true">
+				<from>establishmentNumber</from>
+				<to>queries[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="5bf75de728b04cf4bf3edb03e36ba47e"
+				fixedValue="false">
+			<from>result4624e366a3eb428c9a2ee1737fca5156/hashed</from>
+			<to>establishmentHash</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="234a7979fc44484ba1a62d595a19ae8e"
+				serviceId="nabu.utils.List.hash"
+				resultName="result09647a79f82246c9aede7c568a3f57a7"
+				temporaryMapping="true"
+				x="194"
+				y="240"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b24cc604c59e4839b3c9d373fcb069db"
+					fixedValue="false">
+				<from>enterprises</from>
+				<to>objects</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="bb1010aa888947a5894130406ff32131"
+					fixedValue="true">
+				<from>enterpriseNumber</from>
+				<to>queries[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="cc2f64e255dd491c81cedefd98c523d6"
+				fixedValue="false">
+			<from>result09647a79f82246c9aede7c568a3f57a7/hashed</from>
+			<to>enterpriseHash</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="493474668e9f4923b0e574cf27861845"
+			lineNumber="5"
+			variable="create"
+			into="newEstablishments">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Get existing"
+				disabled="false"
+				id="14fa692baa6945c6823ae0fde8f54f5f"
+				lineNumber="6">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="ec5aa7b66da64a9bb52e0618b8292329"
+					serviceId="nabu.utils.Map.get"
+					resultName="resultdf8a2bc505b94b45ad305bc5650e2de5"
+					temporaryMapping="true"
+					x="249"
+					y="128"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="05880bc3536e4c94ade8aa1fe414d0c1"
+						fixedValue="false">
+					<from>establishmentHash</from>
+					<to>map</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="bc8b4cfca700440e8bc3537f10b760fb"
+						fixedValue="false">
+					<from>create/establishmentNumber</from>
+					<to>key</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="7c69b284de7941c3adbdd43de630343a"
+					fixedValue="false">
+				<from>resultdf8a2bc505b94b45ad305bc5650e2de5/value</from>
+				<to>establishment</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+				disabled="false"
+				id="f566ddce71d9417a89225c97558bfba4"
+				label="!establishment"
+				lineNumber="7">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Map basic data and get enterprise"
+					disabled="false"
+					id="ffbe5aa41fc3425e9aa3aa5b8a2cba11"
+					lineNumber="8">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="8558876a293b4c5f9f7850300ba4c409"
+						serviceId="nabu.utils.Server.uuid"
+						resultName="result53ae1b0432f24c339a2556c3528f6d26"
+						temporaryMapping="true"
+						x="202"
+						y="239"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="f5205cfa91724a768bbe375555a9849b"
+						fixedValue="false">
+					<from>result53ae1b0432f24c339a2556c3528f6d26/uuid</from>
+					<to>establishment/id</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="218426d178254c6f83a5d19b370cb89f"
+						fixedValue="false">
+					<from>date</from>
+					<to>establishment/created</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="d2408ebd1f4e481a9e3b3169856b71ef"
+						fixedValue="true">
+					<from>true</from>
+					<to>establishment/active</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="92e986dbf692489a81752daf82d1f8bc"
+						fixedValue="false">
+					<from>create/establishmentNumber</from>
+					<to>establishment/establishmentNumber</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="6b8ddd2116334f6989ef2163de53eafa"
+						serviceId="nabu.utils.Map.get"
+						resultName="result7faa2e232b3846dc859c2a713f29dde7"
+						temporaryMapping="true"
+						x="37"
+						y="46"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="108860a06d4a4f87a27d54f016904943"
+							fixedValue="false">
+						<from>enterpriseHash</from>
+						<to>map</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="c2daa55e0a944d6392c756083a49a4f5"
+							fixedValue="false">
+						<from>create/enterpriseNumber</from>
+						<to>key</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="7d1a4365effd48a5b3d9c9b7606c24bd"
+						fixedValue="false">
+					<from>result7faa2e232b3846dc859c2a713f29dde7/value</from>
+					<to>enterprise</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+					description="=&quot;Unknown enterprise: &quot; + create/enterpriseNumber + &quot; for establishment &quot; + create/establishmentNumber"
+					disabled="false"
+					id="22b2f61691b943dbbc47dc7760bdd112"
+					label="!enterprise"
+					lineNumber="9"
+					message="Unknown enterprise"
+					whitelist="false" xsi:nil="true"/>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Add to new"
+					disabled="false"
+					id="89620916cf33433fa2d5d57b1542fcd4"
+					lineNumber="10">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="d864f9d75d6149128095c9b7a3f8fe19"
+						fixedValue="false">
+					<from>establishment</from>
+					<to>newEstablishments[0]</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="2da6bf3e08fd4ec49a508721514d9348"
+						fixedValue="false">
+					<from>enterprise/id</from>
+					<to>establishment/enterpriseId</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="b811dc5d75c14246bc9b20d8639e3bd1"
+						fixedValue="false">
+					<from>enterprise/enterpriseNumber</from>
+					<to>establishment/enterpriseNumber</to>
+				</steps>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Map main"
+				disabled="false"
+				id="031b0c78fc4f4527874204672dde5010"
+				lineNumber="11">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f1de7fda4a174ac8bf2b535014664cbd"
+					fixedValue="false">
+				<from>input/branch</from>
+				<to>establishment/branch</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="39c17a487da94ba3ba5a08728faa92ae"
+					fixedValue="false">
+				<from>create/startDate</from>
+				<to>establishment/started</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ab4c6a35245e46c882d232b8fce20c77"
+					fixedValue="false">
+				<from>date</from>
+				<to>establishment/modified</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+				comment="New enterprise (or not linked yet)"
+				disabled="false"
+				id="f7c688e66f5547c58d3e47ed93a07aa1"
+				label="establishment/enterpriseNumber != create/enterpriseNumber"
+				lineNumber="12">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Get enterprise"
+					disabled="false"
+					id="2ea8e7e74e69418db08c0d8da65e0442"
+					lineNumber="13">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="042d9fb1e87a4e3f8386e6e3093abf37"
+						serviceId="nabu.utils.Map.get"
+						resultName="result037b3a8302e04ed9b4d915e154baf63b"
+						temporaryMapping="true"
+						x="220"
+						y="61"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="fb81eb360d404924a6fc50ba7136dab7"
+							fixedValue="false">
+						<from>enterpriseHash</from>
+						<to>map</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="9165bcfaceb24c028cd981503567ac7a"
+							fixedValue="false">
+						<from>create/enterpriseNumber</from>
+						<to>key</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="6dcbfa1eaa06474ea985061d281b9fdb"
+						fixedValue="false">
+					<from>result037b3a8302e04ed9b4d915e154baf63b/value</from>
+					<to>enterprise</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
+					description="=&quot;Unknown enterprise: &quot; + create/enterpriseNumber + &quot; for establishment &quot; + create/establishmentNumber"
+					disabled="false"
+					id="8a33b0fe17ff418091dbbb3ffc9c715b"
+					label="!enterprise"
+					lineNumber="14"
+					message="Unknown enterprise"
+					whitelist="false" xsi:nil="true"/>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					comment="Map it"
+					disabled="false"
+					id="99b4815d56a14ce4afaf3f2ac889962f"
+					lineNumber="15">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="08d683485bde4406a45909353c441e2c"
+						fixedValue="false">
+					<from>enterprise/id</from>
+					<to>establishment/enterpriseId</to>
+				</steps>
+			</steps>
+		</steps>
+		<query>input/create</query>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="4197b7ee554d43419589681f202ce254"
+			label="existingEstablishments"
+			lineNumber="16">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="323a7bb7a3454b1d88f124e095a5d127"
+				serviceId="nabu.services.jdbc.Services.update"
+				resultName="result2d00b07191204265a24c6ee9163e5885"
+				temporaryMapping="true"
+				x="149"
+				y="62"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="100c5dcb2bb644d7b7b5f7e916c5ea47"
+					fixedValue="false">
+				<from>existingEstablishments</from>
+				<to>instances</to>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="18670f839be748ca931beba2da4c8c31"
+			label="newEstablishments"
+			lineNumber="17">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="2fa2a529599a4acb9c0022235592ba3e"
+				serviceId="nabu.services.jdbc.Services.insert"
+				resultName="result50e6e3c349d34687b14abb5cd35547c5"
+				temporaryMapping="true"
+				x="29"
+				y="98"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="1fa679046ebd4915a7ccf54290f815c7"
+					fixedValue="false">
+				<from>newEstablishments</from>
+				<to>instances</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

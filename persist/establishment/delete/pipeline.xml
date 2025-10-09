@@ -1,0 +1,9 @@
+<structure interface="nabu.integrations.kbo.persist.processDelete" name="pipeline">
+    <structure name="input" restrict="delete">
+        <structure definition="nabu.integrations.kbo.csv.establishment.delete" maxOccurs="unbounded" name="delete"/>
+        <field minOccurs="0" name="branch" type="java.lang.Boolean"/>
+    </structure>
+    <structure name="output"/>
+    <structure collectionName="kboEstablishments" definition="nabu.integrations.kbo.crud.establishment.types.output" enricher="nabu.integrations.kbo.crud.establishment.services.list" maxOccurs="unbounded" minOccurs="0" name="establishments" persister="nabu.integrations.kbo.crud.establishment.batch.updateAll"/>
+    <field minOccurs="0" name="date" type="java.util.Date"/>
+</structure>

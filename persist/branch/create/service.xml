@@ -1,0 +1,71 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="2ebb36eb51e4453ea094942aaf439e01"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="98c1d7227c62465dbf645f7cdceaa67d"
+			lineNumber="2"
+			variable="create"
+			into="enterpriseCreate">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="fa4a6699cddf47aeaefbff9a48033fc1"
+				lineNumber="3">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="782810f24d24408dab669186c3352abb"
+					fixedValue="false">
+				<from>create/startDate</from>
+				<to>enterpriseCreate[0]/startDate</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="3544bc7173de4b5388ca69a736ae7e9c"
+					fixedValue="false">
+				<from>create/enterpriseNumber</from>
+				<to>enterpriseCreate[0]/enterpriseNumber</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5a4070371f7e4484849e5adb4c31d539"
+					fixedValue="false">
+				<from>create/id</from>
+				<to>enterpriseCreate[0]/establishmentNumber</to>
+			</steps>
+		</steps>
+		<query>input/create</query>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="0888693326804d7bb26c0d960a777968"
+			label="enterpriseCreate"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="46591e9ccd0a4e69837c68ba366a1fc9"
+				serviceId="nabu.integrations.kbo.persist.establishment.create"
+				resultName="result184173893682436f93e367bbe72b2264"
+				temporaryMapping="true"
+				x="354"
+				y="50"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="11671a9c8bda4b42878970641975680d"
+					fixedValue="false">
+				<from>enterpriseCreate</from>
+				<to>create</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="47731b2ea7d54221bdae34da7319954c"
+					fixedValue="true">
+				<from>true</from>
+				<to>branch</to>
+			</steps>
+		</steps>
+	</steps>
+</sequence>

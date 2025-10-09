@@ -1,0 +1,123 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="bae347a87b6642bca412fde531d3e9e0"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="81ee23b6db8c4e62b4fdb0fd04aa6288"
+			label="input/fullDownloadId != null"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="af6259416c274780a4abca9f6a0510a1"
+				serviceId="nabu.integrations.kbo.persist.generateTasksForDownload"
+				resultName="result9b2dae9636f0462eba196f2a6d37f098"
+				temporaryMapping="true"
+				x="30"
+				y="30"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="24f72a3b5b6249c8ae6434669ea6a02e"
+					fixedValue="false">
+				<from>input/fullDownloadId</from>
+				<to>downloadId</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="e8f9af9bdf114cb789c35a89a3a8e87c"
+				fixedValue="false">
+			<from>result9b2dae9636f0462eba196f2a6d37f098/downloadTaskIds</from>
+			<to>downloadTaskIds</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="1ea935a49f7b4d3796f56a3bb7c15412"
+			label="input/updateDownloadId != null"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="8a9595651fe9421592dbe5fdfe8f99b9"
+				serviceId="nabu.integrations.kbo.persist.generateTasksForDownload"
+				resultName="result1cd6bb978a5543c98d1c0718f3d52d6b"
+				temporaryMapping="true"
+				x="30"
+				y="30"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="118d980c521b4357b65eb42e2696dec4"
+					fixedValue="false">
+				<from>input/updateDownloadId</from>
+				<to>downloadId</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="148394a7d347480d983b3078c80ad857"
+				serviceId="nabu.utils.List.addAll"
+				resultName="result99253d4043dc4ef396ad8ed177d41fff"
+				temporaryMapping="true"
+				x="450"
+				y="179"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c151c6114b9244d29fa20767fa875694"
+					fixedValue="false">
+				<from>downloadTaskIds</from>
+				<to>list</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="bf2a6e5f447a43e896092a827499134d"
+					fixedValue="false">
+				<from>result1cd6bb978a5543c98d1c0718f3d52d6b/downloadTaskIds</from>
+				<to>objects</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="a844b5dcdb8447d696f4882707e29c9e"
+				fixedValue="false">
+			<from>result99253d4043dc4ef396ad8ed177d41fff/list</from>
+			<to>downloadTaskIds</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="9a9d3ec29fdb46498da2423189956c57"
+			label="downloadTaskIds"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="29a6334773a8434081261f8bcca486db"
+				serviceId="nabu.integrations.kbo.persist.processTasks"
+				resultName="result23915addb1494d8eace3d2d85553f6cf"
+				temporaryMapping="true"
+				x="246"
+				y="117"
+				invocationOrder="0"
+				target="nabu.frameworks.tasks.providers.executor"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c596ac625ff94db0bc50e0c3e8755110"
+					fixedValue="false">
+				<from>downloadTaskIds</from>
+				<to>downloadTaskIds</to>
+			</steps>
+			<targetProperties
+					collectionIndex="queue">kbo</targetProperties>
+		</steps>
+	</steps>
+</sequence>

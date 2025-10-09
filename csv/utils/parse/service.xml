@@ -102,28 +102,28 @@
 				disabled="false"
 				id="2de6b32444794bbf9fc5c4a5e9582d4e"
 				fixedValue="true">
-			<from>1000</from>
+			<from>10000</from>
 			<to>windowCreate/batchSize</to>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
 				id="b69ed99e7d9a463dac421f95856923dd"
 				fixedValue="true">
-			<from>1000</from>
+			<from>10000</from>
 			<to>windowCreate/size</to>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
 				id="89a3d9c88f4d488b935f86f1a2d70939"
 				fixedValue="true">
-			<from>1000</from>
+			<from>10000</from>
 			<to>windowDelete/batchSize</to>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 				disabled="false"
 				id="0fa7cbb3723347ceb1cfb98d1e0396a3"
 				fixedValue="true">
-			<from>1000</from>
+			<from>10000</from>
 			<to>windowDelete/size</to>
 		</steps>
 	</steps>

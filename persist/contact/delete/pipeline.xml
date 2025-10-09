@@ -1,0 +1,8 @@
+<structure interface="nabu.integrations.kbo.persist.processDelete" name="pipeline">
+    <structure name="input" restrict="delete">
+        <structure definition="nabu.integrations.kbo.csv.contact.delete" maxOccurs="unbounded" name="delete"/>
+    </structure>
+    <structure name="output"/>
+    <structure collectionName="kboContacts" definition="nabu.integrations.kbo.crud.contact.types.output" enricher="nabu.integrations.kbo.crud.contact.services.list" maxOccurs="unbounded" minOccurs="0" name="contacts" persister="nabu.integrations.kbo.crud.contact.batch.updateAll"/>
+    <field minOccurs="0" name="date" type="java.util.Date"/>
+</structure>

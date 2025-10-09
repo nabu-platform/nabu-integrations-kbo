@@ -386,5 +386,26 @@
 			<from>result87d5b64287a74893b8e168b4e8f14b03/uri</from>
 			<to>output/uri</to>
 		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="a5cbc1e4ee274e719f38c997cf45492f"
+				fixedValue="false">
+			<from>input/year</from>
+			<to>output/year</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="9d2d3dcb5c1041b2bf7b7e8453685e90"
+				fixedValue="false">
+			<from>input/month</from>
+			<to>output/month</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="30f681f285684ae1b52245585fddd010"
+				fixedValue="false">
+			<from>input/number</from>
+			<to>output/number</to>
+		</steps>
 	</steps>
 </sequence>

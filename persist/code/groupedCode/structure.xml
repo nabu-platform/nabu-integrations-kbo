@@ -1,0 +1,4 @@
+<structure name="groupedCode">
+    <field label="Category" name="category" type="java.lang.String"/>
+    <structure definition="nabu.integrations.kbo.csv.code.create" maxOccurs="unbounded" name="codes"/>
+</structure>

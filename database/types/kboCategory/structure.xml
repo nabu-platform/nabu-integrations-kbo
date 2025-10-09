@@ -1,0 +1,3 @@
+<structure collectionName="kboCategories" name="kboCategory" superType="nabu.integrations.kbo.database.core">
+    <field name="name" type="java.lang.String"/>
+</structure>

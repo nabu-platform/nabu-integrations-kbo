@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T15:36:34.231+02:00" lastModified="2025-09-23T16:21:00.696+02:00" leaf="true" version="9">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.persist.establishment.create</references>
+    <references>nabu.integrations.kbo.csv.branch.create</references>
+    <references>java.util.Date</references>
+    <references>java.lang.Object</references>
+    <references>java.lang.String</references>
+    <references>nabu.integrations.kbo.csv.establishment.create</references>
+    <references>nabu.integrations.kbo.persist.processCreate</references>
+</node>

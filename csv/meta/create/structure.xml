@@ -1,0 +1,4 @@
+<structure name="meta">
+    <field label="Variable" name="variable" type="java.lang.String"/>
+    <field label="Value" name="value" type="java.lang.String"/>
+</structure>

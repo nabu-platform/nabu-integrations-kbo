@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.crud.CRUDArtifactManager" created="2025-09-22T14:37:21.289+02:00" lastModified="2025-09-26T16:10:24.006+02:00" leaf="false" version="4">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.database.types.kboCategory</references>
+    <references>nabu.services.crud.provider.basic.provider</references>
+</node>

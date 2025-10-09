@@ -9,6 +9,9 @@
     </structure>
     <structure name="output">
         <field name="uri" type="java.net.URI"/>
+        <field name="year" type="java.lang.String"/>
+        <field name="month" type="java.lang.String"/>
+        <field name="number" type="java.lang.String"/>
     </structure>
     <structure definition="be.nabu.utils.mime.api.Header" maxOccurs="unbounded" minOccurs="0" name="headers"/>
     <structure definition="be.nabu.libs.types.api.KeyValuePair" minOccurs="0" name="username"/>

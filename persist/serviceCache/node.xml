@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.cache.service.CacheManager" created="2025-09-22T14:43:13.526+02:00" lastModified="2025-09-22T14:43:25.633+02:00" leaf="true" version="4">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.persist.memoryCache</references>
+    <references>nabu.integrations.kbo.persist.code.list</references>
+    <references>nabu.integrations.kbo.persist.code.get</references>
+</node>

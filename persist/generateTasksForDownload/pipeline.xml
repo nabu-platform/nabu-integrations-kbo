@@ -1,0 +1,13 @@
+<structure name="pipeline">
+    <structure name="input" validate="true">
+        <field name="downloadId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    </structure>
+    <structure name="output">
+        <field maxOccurs="unbounded" minOccurs="0" name="downloadTaskIds" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    </structure>
+    <structure collectionName="kboDownloads" definition="nabu.integrations.kbo.crud.download.types.output" enricher="nabu.integrations.kbo.crud.download.services.list" name="download" persister="nabu.integrations.kbo.crud.download.batch.updateAll"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="order" type="java.lang.String"/>
+    <field name="process" type="java.lang.Boolean"/>
+    <structure collectionName="kboDownloadTasks" definition="nabu.integrations.kbo.crud.downloadTask.types.output" enricher="nabu.integrations.kbo.crud.downloadTask.services.list" maxOccurs="unbounded" minOccurs="0" name="downloadTasks" persister="nabu.integrations.kbo.crud.downloadTask.batch.updateAll"/>
+    <field maxOccurs="unbounded" name="downloadedTopics" type="java.lang.String"/>
+</structure>
