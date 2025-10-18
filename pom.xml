@@ -42,5 +42,33 @@
 			<groupId>nabu.web.wsdl</groupId>
 			<artifactId>client</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>nabu.services</groupId>
+			<artifactId>crud</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>nabu.types</groupId>
+			<artifactId>model</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>nabu.services</groupId>
+			<artifactId>jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>nabu.frameworks</groupId>
+			<artifactId>tasks</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>nabu.services</groupId>
+			<artifactId>iface</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>nabu.misc</groupId>
+			<artifactId>cache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>nabu.protocols.jdbc</groupId>
+			<artifactId>pool</artifactId>
+		</dependency>
 	</dependencies>
 </project>
