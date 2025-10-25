@@ -1,0 +1,4 @@
+In october 2025 the download logic changed.
+October itself as a full download is 0140 which is conform the old calculation.
+However, from then on every day a new delta appears and it has an incremental number. We have not yet hit november at the time of writing but it is assumed to follow the daily numbering, not go back to 141.
+Additionally note that the day has now been added to the download link, also for the full download!

@@ -2,7 +2,6 @@
     <structure name="input">
         <field name="year" type="java.lang.String"/>
         <field name="month" type="java.lang.String"/>
-        <field name="day" type="java.lang.String"/>
     </structure>
     <structure name="output">
         <field name="number" type="java.lang.String"/>
