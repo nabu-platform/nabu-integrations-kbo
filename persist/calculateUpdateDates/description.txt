@@ -1,0 +1,1 @@
+If you downloaded the last update on monday and it is now thursday, you are actually scheduling the download for yesterday (wednesday) but you ALSO have to download tuesday, otherwise the delta is not complete.

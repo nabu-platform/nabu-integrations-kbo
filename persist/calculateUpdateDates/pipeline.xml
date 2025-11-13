@@ -1,0 +1,6 @@
+<structure name="pipeline">
+    <structure name="input"/>
+    <structure name="output"/>
+    <field name="until" type="java.util.Date"/>
+    <structure collectionName="kboDownloads" definition="nabu.integrations.kbo.crud.download.types.output" enricher="nabu.integrations.kbo.crud.download.services.list" minOccurs="0" name="lastDownload" persister="nabu.integrations.kbo.crud.download.batch.updateAll"/>
+</structure>

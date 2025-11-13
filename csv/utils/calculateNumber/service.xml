@@ -1,176 +1,218 @@
-<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		disabled="false"
-		id="6b7a31636da64af2b36598babcae9536"
-		lineNumber="1">
-	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			disabled="false"
-			id="a23a97fc47c542aaa5ca96dcb8545991"
-			lineNumber="2">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-				disabled="false"
-				id="ec659a82d0ac47418b5f68eb2c8097f7"
-				serviceId="nabu.utils.Date.parse"
+<sequence id="6b7a31636da64af2b36598babcae9536">
+	<sequence id="b255507c8f6448f0adf97587214c6df9"
+		comment="Old way of calculation"
+		disabled="true">
+		<map id="a23a97fc47c542aaa5ca96dcb8545991">
+			<invoke id="ec659a82d0ac47418b5f68eb2c8097f7"
 				resultName="resulte55bf54319a64b95b3db1fc86b6ecbb3"
-				temporaryMapping="true"
-				x="65"
-				y="49"
-				invocationOrder="0"
-				asynchronous="false"
-				recache="false">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="819ee125f2524b1689517e79c20a8d92"
-					fixedValue="true">
-				<from>UTC</from>
-				<to>properties/timezone</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="707a4ebf97e84d6589571a0996765acc"
-					fixedValue="true">
-				<from>=input/year + "-" + input/month</from>
-				<to>string</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="7a72823d4e5240b98c41a1c7375a05c8"
-					fixedValue="true">
-				<from>yyyy-MM</from>
-				<to>properties/format</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-				disabled="false"
-				id="be38134a6cf44753b1ce32fb77deb9ff"
 				serviceId="nabu.utils.Date.parse"
+				x="65"
+				y="49">
+				<link id="819ee125f2524b1689517e79c20a8d92"
+					fixedValue="true">
+					<from>UTC</from>
+					<to>properties/timezone</to>
+				</link>
+				<link id="707a4ebf97e84d6589571a0996765acc"
+					fixedValue="true">
+					<from>=input/year + "-" + input/month</from>
+					<to>string</to>
+				</link>
+				<link id="7a72823d4e5240b98c41a1c7375a05c8"
+					fixedValue="true">
+					<from>yyyy-MM</from>
+					<to>properties/format</to>
+				</link>
+			</invoke>
+			<invoke id="be38134a6cf44753b1ce32fb77deb9ff"
 				resultName="resulta2631d7be2b9444fb1fc47eaafeccd60"
-				temporaryMapping="true"
+				serviceId="nabu.utils.Date.parse"
 				x="106"
-				y="300"
-				invocationOrder="0"
-				asynchronous="false"
-				recache="false">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="af3dd6d6e15f49deac64b3b93eec10bd"
+				y="300">
+				<link id="af3dd6d6e15f49deac64b3b93eec10bd"
 					fixedValue="true">
-				<from>2025-06</from>
-				<to>string</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="a5ef8445f08f46db9428a3a039716ae9"
+					<from>2025-06</from>
+					<to>string</to>
+				</link>
+				<link id="a5ef8445f08f46db9428a3a039716ae9"
 					fixedValue="true">
-				<from>yyyy-MM</from>
-				<to>properties/format</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="66724c293da84d13903e6209ce05f8b0"
+					<from>yyyy-MM</from>
+					<to>properties/format</to>
+				</link>
+				<link id="66724c293da84d13903e6209ce05f8b0"
 					fixedValue="true">
+					<from>UTC</from>
+					<to>properties/timezone</to>
+				</link>
+			</invoke>
+			<invoke id="702db967667042b097186b2edbaaee78"
+				invocationOrder="1"
+				resultName="resultd2b9a74c646e4713a3777f1c8729a1be"
+				serviceId="nabu.utils.Date.diff"
+				x="492"
+				y="76">
+				<link id="85635a6721eb408aa7b4f0df8c2bb043">
+					<from>resulta2631d7be2b9444fb1fc47eaafeccd60/date</from>
+					<to>start</to>
+				</link>
+				<link id="d7d632fc56ab4a46aac85564ddae845f">
+					<from>resulte55bf54319a64b95b3db1fc86b6ecbb3/date</from>
+					<to>end</to>
+				</link>
+				<link id="980b076cf69a467aaba8de7ce27d2981"
+					fixedValue="true">
+					<from>true</from>
+					<to>absolute</to>
+				</link>
+				<link id="39e10b7f2b5e4ebbb0853eb993c44a22"
+					fixedValue="true">
+					<from>MONTHS</from>
+					<to>unit</to>
+				</link>
+				<link id="0f130e94e79e4b67be2aea4746ca6ad0"
+					fixedValue="true">
+					<from>true</from>
+					<to>round</to>
+				</link>
+			</invoke>
+			<link id="81a5cfd893a649dd977446162c028e1f">
+				<from>resultd2b9a74c646e4713a3777f1c8729a1be/diff</from>
+				<to>monthDiff</to>
+			</link>
+		</map>
+		<map id="82f8b3ca32984b18a0511c19e097a198"
+			comment="We know 2025-06 was 136">
+			<invoke id="a7b74603189e40f99a2e6ae49dbe0129"
+				resultName="resultb54ec5816ff846a5940911470602aa99"
+				serviceId="nabu.utils.String.pad"
+				x="166"
+				y="91">
+				<link id="68f3fc866f0148fb83ebe8802f03172d"
+					fixedValue="true">
+					<from>4</from>
+					<to>length</to>
+				</link>
+				<link id="0a136a78314e45b8af670df2891d70b9"
+					fixedValue="true">
+					<from>0</from>
+					<to>pad</to>
+				</link>
+				<link id="f513a04c77d149f6adec84dcd4edffce"
+					fixedValue="true">
+					<from>=136 + monthDiff</from>
+					<to>content</to>
+				</link>
+			</invoke>
+			<link id="c95dcc93357b4f6ba384b388b05848f2">
+				<from>resultb54ec5816ff846a5940911470602aa99/padded</from>
+				<to>output/number</to>
+			</link>
+		</map>
+	</sequence>
+	<map id="92adad10f4174f028416249745acb976">
+		<invoke id="e61e9a65fe084633a33f0e2d1a360074"
+			resultName="resulte55bf54319a64b95b3db1fc86b6ecbb3"
+			serviceId="nabu.utils.Date.parse"
+			x="40"
+			y="252">
+			<link id="3fe76066008e470f96b9f454dcc2477e"
+				fixedValue="true">
 				<from>UTC</from>
 				<to>properties/timezone</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-				disabled="false"
-				id="702db967667042b097186b2edbaaee78"
-				serviceId="nabu.utils.Date.diff"
-				resultName="resultd2b9a74c646e4713a3777f1c8729a1be"
-				temporaryMapping="true"
-				x="492"
-				y="76"
-				invocationOrder="1"
-				asynchronous="false"
-				recache="false">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="85635a6721eb408aa7b4f0df8c2bb043"
-					fixedValue="false">
+			</link>
+			<link id="0a7cac58169c4a3aa665186a5a4b759a"
+				fixedValue="true">
+				<from>=input/year + "-" + input/month + "-" + input/day</from>
+				<to>string</to>
+			</link>
+			<link id="2f72a9cdd8ca4e52acf2ad0b849afaff"
+				fixedValue="true">
+				<from>yyyy-MM-dd</from>
+				<to>properties/format</to>
+			</link>
+		</invoke>
+		<invoke id="d8b6af82960443b7b45a6e2a1acbf703"
+			resultName="resulta2631d7be2b9444fb1fc47eaafeccd60"
+			serviceId="nabu.utils.Date.parse"
+			x="57"
+			y="70">
+			<link id="1882ad2b388442dea1f1521ee009c896"
+				fixedValue="true">
+				<from>2025-11-01</from>
+				<to>string</to>
+			</link>
+			<link id="719c0f9c8255410cb147bff68db816e1"
+				fixedValue="true">
+				<from>yyyy-MM-dd</from>
+				<to>properties/format</to>
+			</link>
+			<link id="5a8b789ec5c4459eb2224c183f39eae3"
+				fixedValue="true">
+				<from>UTC</from>
+				<to>properties/timezone</to>
+			</link>
+		</invoke>
+		<invoke id="17cad86d19aa40c5a633491b96709a44"
+			invocationOrder="1"
+			resultName="resultd2b9a74c646e4713a3777f1c8729a1be"
+			serviceId="nabu.utils.Date.diff"
+			x="553"
+			y="84">
+			<link id="41ade8b923674a83b2615fb8ac7b3cd9">
 				<from>resulta2631d7be2b9444fb1fc47eaafeccd60/date</from>
 				<to>start</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="d7d632fc56ab4a46aac85564ddae845f"
-					fixedValue="false">
+			</link>
+			<link id="0bf80224f3294a2a955283ebc36408f4">
 				<from>resulte55bf54319a64b95b3db1fc86b6ecbb3/date</from>
 				<to>end</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="980b076cf69a467aaba8de7ce27d2981"
-					fixedValue="true">
+			</link>
+			<link id="5c55cc6447b64225a57f0c98c7dc5b64"
+				fixedValue="true">
 				<from>true</from>
 				<to>absolute</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="39e10b7f2b5e4ebbb0853eb993c44a22"
-					fixedValue="true">
-				<from>MONTHS</from>
+			</link>
+			<link id="80a82ecead0449a793fe66797b5bceda"
+				fixedValue="true">
+				<from>DAYS</from>
 				<to>unit</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="0f130e94e79e4b67be2aea4746ca6ad0"
-					fixedValue="true">
+			</link>
+			<link id="6bc54aa4b29d409787ad7a85b6b66d79"
+				fixedValue="true">
 				<from>true</from>
 				<to>round</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="81a5cfd893a649dd977446162c028e1f"
-				fixedValue="false">
+			</link>
+		</invoke>
+		<link id="4cd8b9309f59485d8955ab9678b17fdd">
 			<from>resultd2b9a74c646e4713a3777f1c8729a1be/diff</from>
-			<to>monthDiff</to>
-		</steps>
-	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			comment="We know 2025-06 was 136"
-			disabled="false"
-			id="82f8b3ca32984b18a0511c19e097a198"
-			lineNumber="3">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-				disabled="false"
-				id="a7b74603189e40f99a2e6ae49dbe0129"
-				serviceId="nabu.utils.String.pad"
-				resultName="resultb54ec5816ff846a5940911470602aa99"
-				temporaryMapping="true"
-				x="166"
-				y="91"
-				invocationOrder="0"
-				asynchronous="false"
-				recache="false">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="68f3fc866f0148fb83ebe8802f03172d"
-					fixedValue="true">
+			<to>dayDiff</to>
+		</link>
+	</map>
+	<map id="76e8c537a4a5450e926896fdfcde225c"
+		comment="We start here:  KboOpenData_0168_2025_11_01_Full.zip">
+		<invoke id="22bfcd35a26c43ceb07aea8f442aeabf"
+			resultName="resultb54ec5816ff846a5940911470602aa99"
+			serviceId="nabu.utils.String.pad"
+			x="166"
+			y="91">
+			<link id="3427fce4e9c146efbb3f3cf0a210dfff"
+				fixedValue="true">
 				<from>4</from>
 				<to>length</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="0a136a78314e45b8af670df2891d70b9"
-					fixedValue="true">
+			</link>
+			<link id="1c2af8a5e98f4f438af5b69903bab987"
+				fixedValue="true">
 				<from>0</from>
 				<to>pad</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="f513a04c77d149f6adec84dcd4edffce"
-					fixedValue="true">
-				<from>=136 + monthDiff</from>
+			</link>
+			<link id="243780cef5a84794b56669db10e1a7e2"
+				fixedValue="true">
+				<from>=168 + dayDiff</from>
 				<to>content</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="c95dcc93357b4f6ba384b388b05848f2"
-				fixedValue="false">
+			</link>
+		</invoke>
+		<link id="324dbbe44dc84b508e47c44aa81a1fd7">
 			<from>resultb54ec5816ff846a5940911470602aa99/padded</from>
 			<to>output/number</to>
-		</steps>
-	</steps>
+		</link>
+	</map>
 </sequence>
