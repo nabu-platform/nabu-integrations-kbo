@@ -1,0 +1,6 @@
+<structure name="downloadDescriptor">
+    <field name="year" type="java.lang.String"/>
+    <field name="month" type="java.lang.String"/>
+    <field name="day" type="java.lang.String"/>
+    <field name="sequence" type="java.lang.String"/>
+</structure>

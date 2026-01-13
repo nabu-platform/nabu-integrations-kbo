@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-05T09:57:09.947+02:00" lastModified="2025-11-07T15:45:53.171+01:00" leaf="true" version="17">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-05T09:57:09.947+02:00" lastModified="2025-12-10T14:30:54.678+01:00" leaf="true" version="20">
     <environmentId>ares</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
+    <references>nabu.utils.BigMath.sumIntegers</references>
     <references>nabu.utils.Date.diff</references>
     <references>nabu.utils.String.pad</references>
+    <references>java.util.Date</references>
+    <references>java.math.BigInteger</references>
+    <references>nabu.integrations.kbo.crud.offset.services.list</references>
     <references>java.lang.String</references>
     <references>java.lang.Integer</references>
     <references>nabu.utils.Date.parse</references>

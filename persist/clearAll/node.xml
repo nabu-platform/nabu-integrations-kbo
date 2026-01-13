@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-11-14T12:44:35.682+01:00" lastModified="2025-11-17T10:54:07.384+01:00" leaf="true" version="8">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.protocols.jdbc.pool.Services.execute</references>
+    <references>java.lang.String</references>
+</node>

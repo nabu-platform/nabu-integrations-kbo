@@ -5,6 +5,7 @@
     <field comment="Filled in when everything is processed. You can't start a new download until it is all processed." minOccurs="0" name="processed" timezone="UTC" type="java.util.Date"/>
     <field name="year" type="java.lang.String"/>
     <field name="month" type="java.lang.String"/>
+    <field minOccurs="0" name="day" type="java.lang.String"/>
     <field name="sequence" type="java.lang.String"/>
     <field comment="Whether or not this is a delta download" name="delta" type="java.lang.Boolean"/>
     <field minOccurs="0" name="snapshot" type="java.lang.String"/>

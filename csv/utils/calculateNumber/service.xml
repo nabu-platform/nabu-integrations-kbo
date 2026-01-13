@@ -186,6 +186,45 @@
 			<from>resultd2b9a74c646e4713a3777f1c8729a1be/diff</from>
 			<to>dayDiff</to>
 		</link>
+		<link id="843de43f1ee941dbb2e664348878b9fe">
+			<from>resulte55bf54319a64b95b3db1fc86b6ecbb3/date</from>
+			<to>applicableDay</to>
+		</link>
+	</map>
+	<map id="019a7ceb33154bb6a9d867d414b8c104">
+		<invoke id="71c5ee3248354ee89783d523625215ba"
+			resultName="result71c5ee3248354ee89783d523625215ba"
+			serviceId="nabu.integrations.kbo.crud.offset.services.list"
+			x="70"
+			y="88">
+			<link id="41db5565e4dd4f198baec1e57416de2d">
+				<from>applicableDay</from>
+				<to>filter/applicableSince</to>
+			</link>
+		</invoke>
+		<invoke id="e2942a65dc044271a45744896c2c4be9"
+			invocationOrder="1"
+			resultName="resulte2942a65dc044271a45744896c2c4be9"
+			serviceId="nabu.utils.BigMath.sumIntegers"
+			x="486"
+			y="169">
+			<link id="c5c6106a762e4789a800b13b971a33b1">
+				<from>result71c5ee3248354ee89783d523625215ba/results/amount</from>
+				<to>integers</to>
+			</link>
+		</invoke>
+		<link id="4cd4f175f92f421c957350e0d9bfe8a2">
+			<from>resulte2942a65dc044271a45744896c2c4be9/result</from>
+			<to>offset</to>
+		</link>
+	</map>
+	<map id="f19e456a13c54cbe8aa9b6585819f739"
+		label="offset == null">
+		<link id="634abdf3ac4e4fd1a06e306552b5aa0a"
+			fixedValue="true">
+			<from>0</from>
+			<to>offset</to>
+		</link>
 	</map>
 	<map id="76e8c537a4a5450e926896fdfcde225c"
 		comment="We start here:  KboOpenData_0168_2025_11_01_Full.zip">
@@ -206,7 +245,7 @@
 			</link>
 			<link id="243780cef5a84794b56669db10e1a7e2"
 				fixedValue="true">
-				<from>=168 + dayDiff</from>
+				<from>=168 + dayDiff + offset</from>
 				<to>content</to>
 			</link>
 		</invoke>

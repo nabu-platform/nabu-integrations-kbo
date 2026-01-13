@@ -30,6 +30,7 @@
     <field name="updateUri" type="java.net.URI"/>
     <structure collectionName="kboDownloads" definition="nabu.integrations.kbo.database.types.kboDownload" name="downloadEntry"/>
     <field minOccurs="0" name="fullDownloadId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
-    <field minOccurs="0" name="updateDownloadId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field maxOccurs="unbounded" minOccurs="0" name="updateDownloadId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
     <structure collectionName="kboDownloads" definition="nabu.integrations.kbo.crud.download.types.output" enricher="nabu.integrations.kbo.crud.download.services.list" maxOccurs="unbounded" minOccurs="0" name="unprocessedDownloads" persister="nabu.integrations.kbo.crud.download.batch.updateAll"/>
+    <structure definition="nabu.integrations.kbo.csv.utils.downloadDescriptor" maxOccurs="unbounded" name="updateDescriptors"/>
 </structure>

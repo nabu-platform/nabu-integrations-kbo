@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T09:54:26.278+02:00" lastModified="2025-09-23T10:25:13.500+02:00" leaf="true" version="11">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T09:54:26.278+02:00" lastModified="2025-12-18T11:19:38.558+01:00" leaf="true" version="22">
     <environmentId>ares</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
-    <references>nabu.integrations.kbo.persist.generateTasksForDownload</references>
-    <references>nabu.frameworks.tasks.providers.executor</references>
-    <references>java.util.UUID</references>
+    <references>nabu.utils.List.add</references>
+    <references>nabu.integrations.kbo.crud.downloadTask.types.output</references>
     <references>nabu.integrations.kbo.persist.processTasks</references>
+    <references>nabu.integrations.kbo.crud.downloadTask.services.list</references>
+    <references>nabu.integrations.kbo.persist.updateDownloadProcessed</references>
+    <references>nabu.utils.Date.now</references>
+    <references>nabu.frameworks.tasks.providers.executor</references>
+    <references>nabu.utils.List.unique</references>
+    <references>java.util.UUID</references>
+    <references>nabu.integrations.kbo.persist.generateTasksForDownload</references>
     <references>nabu.utils.List.addAll</references>
 </node>

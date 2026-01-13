@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.crud.CRUDArtifactManager" created="2025-12-09T13:12:40.203+01:00" lastModified="2025-12-09T13:14:21.308+01:00" leaf="false" version="3">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.database.types.kboOffset</references>
+    <references>nabu.services.crud.provider.basic.provider</references>
+</node>

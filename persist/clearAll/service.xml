@@ -1,0 +1,29 @@
+<sequence id="f797e904635747588d9303c11db551f1">
+	<map id="8e78a3f78ec94db0aea3ae99fe1f9b2d">
+		<invoke id="24e3dd03b5504700b0916e93cdd4012d"
+			resultName="result24e3dd03b5504700b0916e93cdd4012d"
+			serviceId="nabu.protocols.jdbc.pool.Services.execute"
+			x="105"
+			y="36">
+			<link id="77086a5241fd4b9f90f06071547932c1">
+				<from>input/connectionId</from>
+				<to>jdbcPoolId</to>
+			</link>
+			<link id="d23fb05d6c6b4d81b0d5dc9ceba3cfd0"
+				fixedValue="true">
+				<from>="
+truncate kbo_download_tasks;
+truncate kbo_downloads cascade;
+truncate kbo_contacts;
+truncate kbo_addresses;
+truncate kbo_activities;
+truncate kbo_establishments cascade;
+truncate kbo_enterprises cascade;
+truncate kbo_codes cascade;
+truncate kbo_categories cascade;
+"</from>
+				<to>sql</to>
+			</link>
+		</invoke>
+	</map>
+</sequence>

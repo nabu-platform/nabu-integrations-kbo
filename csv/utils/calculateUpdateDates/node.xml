@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-11-12T10:12:16.593+01:00" lastModified="2025-11-14T12:36:23.643+01:00" leaf="true" version="31">
+    <environmentId>ares</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.integrations.kbo.csv.utils.calculateNumber</references>
+    <references>nabu.utils.Date.toValues</references>
+    <references>nabu.utils.List.add</references>
+    <references>nabu.utils.String.pad</references>
+    <references>java.lang.Long</references>
+    <references>java.util.Date</references>
+    <references>nabu.integrations.kbo.csv.utils.downloadDescriptor</references>
+    <references>nabu.utils.Date.incrementDuration</references>
+</node>

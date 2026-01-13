@@ -1,0 +1,282 @@
+<sequence id="bb45e04a16ea4f9cae8aebcd125270e9">
+	<map id="0907090351fd49bb83363928a2f61053"
+		comment="We assume you want the data for the previous day">
+		<invoke id="9c33891c711c4e7ebb52d9c0e4a6b2de"
+			resultName="resultc44819f78dd24445a75616c20f1b42e2"
+			serviceId="nabu.utils.Date.incrementDuration"
+			x="162"
+			y="33">
+			<link id="7c5fcd1989a44e90a491338ff14fbd8a"
+				fixedValue="true">
+				<from>-1</from>
+				<to>times</to>
+			</link>
+			<link id="4afe4d7b8512480b8feaf25cdb2484ea"
+				fixedValue="true">
+				<from>P1D</from>
+				<to>duration</to>
+			</link>
+		</invoke>
+		<link id="0e862e4570f246c3a2cfb724ebfa1fbc">
+			<from>resultc44819f78dd24445a75616c20f1b42e2/date</from>
+			<to>until</to>
+		</link>
+	</map>
+	<map id="845bf5bf995d472daf556e763d54b445">
+		<invoke id="6773c936c7f444f182b84fa4ae762116"
+			invocationOrder="2"
+			resultName="result6773c936c7f444f182b84fa4ae762116"
+			serviceId="nabu.integrations.kbo.csv.utils.calculateNumber"
+			x="439"
+			y="21">
+			<link id="6bc541cf47484b6ba01722b0f20f0bfd">
+				<from>resultf21becb40c1d49399917476da8cbb45e/padded</from>
+				<to>day</to>
+			</link>
+			<link id="11fcfaae91a44e8f8ddd9a6ce95b42b2">
+				<from>result88549897757f4182847089b2d219d8c0/padded</from>
+				<to>month</to>
+			</link>
+			<link id="ec2f23fb6e334bfebd997e6eb78ba7b9">
+				<from>resultff32cda2e9f342838c05d66d783984ee/values/year</from>
+				<to>year</to>
+			</link>
+		</invoke>
+		<invoke id="ff32cda2e9f342838c05d66d783984ee"
+			resultName="resultff32cda2e9f342838c05d66d783984ee"
+			serviceId="nabu.utils.Date.toValues"
+			x="44"
+			y="75">
+			<link id="1ac72fd0922e4cdea18ef35332179a13">
+				<from>until</from>
+				<to>date</to>
+			</link>
+		</invoke>
+		<invoke id="f21becb40c1d49399917476da8cbb45e"
+			invocationOrder="1"
+			resultName="resultf21becb40c1d49399917476da8cbb45e"
+			serviceId="nabu.utils.String.pad"
+			x="314"
+			y="176">
+			<link id="f8ee32c3208e4356961dea505922660b">
+				<from>resultff32cda2e9f342838c05d66d783984ee/values/day</from>
+				<to>content</to>
+			</link>
+			<link id="25df2e7582f14d8794fcd4e8e5824c49"
+				fixedValue="true">
+				<from>0</from>
+				<to>pad</to>
+			</link>
+			<link id="eaa43dfc194c4640a860b401fa6e9645"
+				fixedValue="true">
+				<from>2</from>
+				<to>length</to>
+			</link>
+		</invoke>
+		<invoke id="88549897757f4182847089b2d219d8c0"
+			invocationOrder="1"
+			resultName="result88549897757f4182847089b2d219d8c0"
+			serviceId="nabu.utils.String.pad"
+			x="125"
+			y="275">
+			<link id="4756b4dfa68042f8b00e8bb7230b00b7">
+				<from>resultff32cda2e9f342838c05d66d783984ee/values/month</from>
+				<to>content</to>
+			</link>
+			<link id="d8a0e78057e34843a78c0875bfd2d5dd"
+				fixedValue="true">
+				<from>0</from>
+				<to>pad</to>
+			</link>
+			<link id="74574c4afd67473897fe37f6d7e0d4ee"
+				fixedValue="true">
+				<from>2</from>
+				<to>length</to>
+			</link>
+		</invoke>
+		<link id="372d3a89d53d422f9fdfffefe6703404">
+			<from>result6773c936c7f444f182b84fa4ae762116/number</from>
+			<to>finalNumeric</to>
+		</link>
+		<link id="27581467184f422c8ef5b35bfa29165f">
+			<from>resultff32cda2e9f342838c05d66d783984ee/values/year</from>
+			<to>finalDescriptor/year</to>
+		</link>
+		<link id="3c892a7229fe4bccb7e0c8cb8479cd8a">
+			<from>result88549897757f4182847089b2d219d8c0/padded</from>
+			<to>finalDescriptor/month</to>
+		</link>
+		<link id="d23cae62c8c24619b04de99484c08063">
+			<from>resultf21becb40c1d49399917476da8cbb45e/padded</from>
+			<to>finalDescriptor/day</to>
+		</link>
+		<link id="e812f73d5a994b9e8180b90272e5b9d9">
+			<from>result6773c936c7f444f182b84fa4ae762116/number</from>
+			<to>finalDescriptor/sequence</to>
+		</link>
+	</map>
+	<map id="08a35dd77e6e43a094b4a2324ac6f37a"
+		comment="Calculate amount of additional downloads to get. E.g. downloading 136, last downloaded is 135, nothing is required additionally. Downloading 137 though and we need to catch up 136, so 1">
+		<link id="5e876e6fb1ff4788947751e366aec9e2"
+			fixedValue="true">
+			<from>=finalNumeric - input/lastSequence - 1</from>
+			<to>amountToCatchUp</to>
+		</link>
+	</map>
+	<for id="46b78491d19c468ba232337284f7970e"
+		into="output/updateDescriptors"
+		variable="catchUp">
+		<map id="b2d423f51e4443b994208a25ec33f75d"
+			comment="We don't have the start date necessarily, so we start counting from the &quot;until&quot; date">
+			<link id="4c7440dedcde48a38b2707d4f3eddd92"
+				fixedValue="true">
+				<from>=amountToCatchUp - catchUp</from>
+				<to>dateOffsetToUntil</to>
+			</link>
+		</map>
+		<map id="1b18006e42c3450c96f0ad8608ffb072">
+			<invoke id="03af317a42234a8d841a55d01503c0ee"
+				resultName="result03af317a42234a8d841a55d01503c0ee"
+				serviceId="nabu.utils.String.pad"
+				x="32"
+				y="40">
+				<link id="49f8a7271b514cadb020dd7b1a4388e8"
+					fixedValue="true">
+					<from>0</from>
+					<to>pad</to>
+				</link>
+				<link id="5085abae19dc44818f1ec0017cbf3919"
+					fixedValue="true">
+					<from>4</from>
+					<to>length</to>
+				</link>
+				<link id="ab399ccbf3ae41b8a18427c30b330225"
+					fixedValue="true">
+					<from>=input/lastSequence + catchUp + 1</from>
+					<to>content</to>
+				</link>
+			</invoke>
+			<link id="1d578cc357534384bdbc07f0bc0a7a58">
+				<from>result03af317a42234a8d841a55d01503c0ee/padded</from>
+				<to>output/updateDescriptors[0]/sequence</to>
+			</link>
+			<invoke id="d28d758d7eaa4dac99f98fc431f44b23"
+				resultName="resultd28d758d7eaa4dac99f98fc431f44b23"
+				serviceId="nabu.utils.Date.incrementDuration"
+				x="58"
+				y="158">
+				<link id="cb050bc3bd9148fca36d64b95383e258">
+					<from>until</from>
+					<to>start</to>
+				</link>
+				<link id="500a1114c9834961826c0b1f6b3c4b5d"
+					fixedValue="true">
+					<from>-1</from>
+					<to>times</to>
+				</link>
+				<link id="73339facac5349fd826e41ad3eaaa991"
+					fixedValue="true">
+					<from>="P" + dateOffsetToUntil + "D"</from>
+					<to>duration</to>
+				</link>
+				<link id="a09908408a5740f2b8ff56836490d0f3"
+					fixedValue="true">
+					<from>CET</from>
+					<to>timezone</to>
+				</link>
+			</invoke>
+			<invoke id="cb94e62f7db74d03941beec14275ce58"
+				invocationOrder="2"
+				resultName="resultcb94e62f7db74d03941beec14275ce58"
+				serviceId="nabu.utils.String.pad"
+				x="589"
+				y="173">
+				<link id="3b19b0a296ee4fd799b9c21102b009cd">
+					<from>result6c6d4d56ade14c14a5abfbaab566b6f4/values/day</from>
+					<to>content</to>
+				</link>
+				<link id="3e4cfdc3c352471d95d073bed60e813e"
+					fixedValue="true">
+					<from>0</from>
+					<to>pad</to>
+				</link>
+				<link id="ed516ba0258e4534be20c9d4f80e2b23"
+					fixedValue="true">
+					<from>2</from>
+					<to>length</to>
+				</link>
+			</invoke>
+			<invoke id="acf679d8f68846b492a442c80ccde4c7"
+				invocationOrder="2"
+				resultName="resultacf679d8f68846b492a442c80ccde4c7"
+				serviceId="nabu.utils.String.pad"
+				x="616"
+				y="284">
+				<link id="7d752cffb3ca4cac9b53f14c4d6c4d2c">
+					<from>result6c6d4d56ade14c14a5abfbaab566b6f4/values/month</from>
+					<to>content</to>
+				</link>
+				<link id="be08ab38da714fd0b2ce4faa852b6b85"
+					fixedValue="true">
+					<from>0</from>
+					<to>pad</to>
+				</link>
+				<link id="f76f70aff8c64c9e826a2cf0d311f236"
+					fixedValue="true">
+					<from>2</from>
+					<to>length</to>
+				</link>
+			</invoke>
+			<invoke id="6c6d4d56ade14c14a5abfbaab566b6f4"
+				invocationOrder="1"
+				resultName="result6c6d4d56ade14c14a5abfbaab566b6f4"
+				serviceId="nabu.utils.Date.toValues"
+				x="340"
+				y="259">
+				<link id="ffe4e8b607b24feaa9aa9036805a40dd">
+					<from>resultd28d758d7eaa4dac99f98fc431f44b23/date</from>
+					<to>date</to>
+				</link>
+				<link id="0fa223a632cf46b5b75a9d20541ede78"
+					fixedValue="true">
+					<from>CET</from>
+					<to>timezone</to>
+				</link>
+			</invoke>
+			<link id="cbe11874312e42c0b16e5cdf155fcfed">
+				<from>resultcb94e62f7db74d03941beec14275ce58/padded</from>
+				<to>output/updateDescriptors[0]/day</to>
+			</link>
+			<link id="a28778a84246415bbd6d6047227e0274">
+				<from>result6c6d4d56ade14c14a5abfbaab566b6f4/values/year</from>
+				<to>output/updateDescriptors[0]/year</to>
+			</link>
+			<link id="ab7d3a1937f04ce49011db920015d2be">
+				<from>resultacf679d8f68846b492a442c80ccde4c7/padded</from>
+				<to>output/updateDescriptors[0]/month</to>
+			</link>
+		</map>
+		<query>amountToCatchUp</query>
+	</for>
+	<map id="f159083e4d064541a4b7c61bd537d669"
+		comment="Finally add for the date itself">
+		<invoke id="5f95527e06a0413e917b9b3cba92719f"
+			resultName="result5f95527e06a0413e917b9b3cba92719f"
+			serviceId="nabu.utils.List.add"
+			x="141"
+			y="41">
+			<link id="e75dd244d9ec451f9a45a33177ae9077">
+				<from>output/updateDescriptors</from>
+				<to>list</to>
+			</link>
+			<link id="620f7eb40b6041409df77a9bb811a507">
+				<from>finalDescriptor</from>
+				<to>object</to>
+			</link>
+		</invoke>
+		<link id="c1bc26a777dd40d083144f739b960cfd">
+			<from>result5f95527e06a0413e917b9b3cba92719f/list</from>
+			<to>output/updateDescriptors</to>
+		</link>
+	</map>
+</sequence>

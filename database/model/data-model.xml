@@ -54,5 +54,11 @@
         <x>968</x>
         <y>57</y>
     </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.integrations.kbo.database.types.kboOffset</type>
+        <x>1514</x>
+        <y>381</y>
+    </entries>
     <type>DATABASE</type>
 </dataModel>

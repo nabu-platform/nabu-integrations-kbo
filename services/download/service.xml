@@ -1,944 +1,740 @@
-<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		disabled="false"
-		id="cff81450d8884918819ec237c411e005"
-		lineNumber="1">
-	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			comment="Get unprocessed downloads"
-			disabled="false"
-			id="c751646546d44285ad2fe3a09a0c37b0"
-			lineNumber="2">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-				disabled="false"
-				id="4315dc15a21b4a08b52f0539215104dc"
-				serviceId="nabu.integrations.kbo.crud.download.services.list"
-				resultName="resultf42ab836a5fd4cb5a896ad842a38e6b1"
-				temporaryMapping="true"
-				x="277"
-				y="73"
-				invocationOrder="0"
-				asynchronous="false"
-				recache="false">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="e3cd67dea8c04816a119000ddf4f2a27"
-					fixedValue="true">
+<sequence id="cff81450d8884918819ec237c411e005">
+	<map id="c751646546d44285ad2fe3a09a0c37b0"
+		comment="Get unprocessed downloads">
+		<invoke id="4315dc15a21b4a08b52f0539215104dc"
+			resultName="resultf42ab836a5fd4cb5a896ad842a38e6b1"
+			serviceId="nabu.integrations.kbo.crud.download.services.list"
+			x="277"
+			y="73">
+			<link id="e3cd67dea8c04816a119000ddf4f2a27"
+				fixedValue="true">
 				<from>true</from>
 				<to>filter/unprocessed</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="995721ede59046208bf076fe02cb04e4"
-				fixedValue="false">
+			</link>
+		</invoke>
+		<link id="995721ede59046208bf076fe02cb04e4">
 			<from>resultf42ab836a5fd4cb5a896ad842a38e6b1/results</from>
 			<to>unprocessedDownloads</to>
-		</steps>
-	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Throw"
-			disabled="false"
-			id="0ecce7dc6c0247c38d9635d350500eed"
-			label="unprocessedDownloads"
-			lineNumber="3"
-			message="There are still unprocessed downloads, finish them before starting a new download"
-			whitelist="false" xsi:nil="true"/>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			comment="Set default values"
-			disabled="false"
-			id="24723de87b87465b9093a5f851c712a4"
-			lineNumber="4">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="f3fb631897784304941ab8f61a29fc51"
-				optional="true"
-				fixedValue="true">
+		</link>
+	</map>
+	<throw id="0ecce7dc6c0247c38d9635d350500eed"
+		label="unprocessedDownloads"
+		message="There are still unprocessed downloads, finish them before starting a new download"/>
+	<map id="24723de87b87465b9093a5f851c712a4"
+		comment="Set default values">
+		<link id="f3fb631897784304941ab8f61a29fc51"
+			fixedValue="true"
+			optional="true">
 			<from>false</from>
 			<to>input/activity</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="e2dc4746c56544bd892418ac32578ac3"
-				optional="true"
-				fixedValue="true">
+		</link>
+		<link id="e2dc4746c56544bd892418ac32578ac3"
+			fixedValue="true"
+			optional="true">
 			<from>false</from>
 			<to>input/address</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="dca993a101724d2b8381735b40982be9"
-				optional="true"
-				fixedValue="true">
+		</link>
+		<link id="dca993a101724d2b8381735b40982be9"
+			fixedValue="true"
+			optional="true">
 			<from>false</from>
 			<to>input/contact</to>
-		</steps>
-	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			comment="More default values"
-			disabled="false"
-			id="052c2bc0c43b49eab0216c9b1cd34301"
-			lineNumber="5">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="e9eeef04bbf048bd89035e1da4216c49"
-				fixedValue="true">
+		</link>
+	</map>
+	<map id="052c2bc0c43b49eab0216c9b1cd34301"
+		comment="More default values">
+		<link id="e9eeef04bbf048bd89035e1da4216c49"
+			fixedValue="true">
 			<from>false</from>
 			<to>full</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="3e06632815f345838418ff6d611ad51a"
-				fixedValue="true">
+		</link>
+		<link id="3e06632815f345838418ff6d611ad51a"
+			fixedValue="true">
 			<from>true</from>
 			<to>update</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="762305c52859422b9d9ea520ede0ba65"
-				fixedValue="false">
+		</link>
+		<link id="762305c52859422b9d9ea520ede0ba65">
 			<from>input/activity</from>
 			<to>updateActivity</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="a8fdde269bb040c7a6d1718ab8596e61"
-				fixedValue="false">
+		</link>
+		<link id="a8fdde269bb040c7a6d1718ab8596e61">
 			<from>input/address</from>
 			<to>updateAddress</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="d6ddc410ab0c4d39a586b0077d86997b"
-				fixedValue="false">
+		</link>
+		<link id="d6ddc410ab0c4d39a586b0077d86997b">
 			<from>input/contact</from>
 			<to>updateContact</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="ca5bf7aed7f74c99a07db7c2702a032c"
-				fixedValue="true">
+		</link>
+		<link id="ca5bf7aed7f74c99a07db7c2702a032c"
+			fixedValue="true">
 			<from>true</from>
 			<to>updateBranch</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="b1049835b4674d798c27a777069b7d99"
-				fixedValue="true">
+		</link>
+		<link id="b1049835b4674d798c27a777069b7d99"
+			fixedValue="true">
 			<from>true</from>
 			<to>updateDenomination</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="9657420b497240fa9e60c3d47d2a5b65"
-				fixedValue="true">
+		</link>
+		<link id="9657420b497240fa9e60c3d47d2a5b65"
+			fixedValue="true">
 			<from>true</from>
 			<to>updateEnterprise</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="9a84da652c684da3b61256cdefc242fd"
-				fixedValue="true">
+		</link>
+		<link id="9a84da652c684da3b61256cdefc242fd"
+			fixedValue="true">
 			<from>true</from>
 			<to>updateEstablishment</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="1ed9fb09b11e4d038015154a6381a388"
-				fixedValue="true">
+		</link>
+		<link id="1ed9fb09b11e4d038015154a6381a388"
+			fixedValue="true">
 			<from>false</from>
 			<to>fullAddress</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="c5ecf29e073749e3bbc3a8b2678e0608"
-				fixedValue="true">
+		</link>
+		<link id="c5ecf29e073749e3bbc3a8b2678e0608"
+			fixedValue="true">
 			<from>false</from>
 			<to>fullActivity</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="e3111d34b1a643a8ba465685fb97213c"
-				fixedValue="true">
+		</link>
+		<link id="e3111d34b1a643a8ba465685fb97213c"
+			fixedValue="true">
 			<from>false</from>
 			<to>fullContact</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="c06504fe87c441998b74da33f5543993"
-				fixedValue="true">
+		</link>
+		<link id="c06504fe87c441998b74da33f5543993"
+			fixedValue="true">
 			<from>false</from>
 			<to>fullBranch</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="a4f3a1c68d5e45b4b7118cea724ec2fb"
-				fixedValue="true">
+		</link>
+		<link id="a4f3a1c68d5e45b4b7118cea724ec2fb"
+			fixedValue="true">
 			<from>false</from>
 			<to>fullDenomination</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="a3f6fcff3eb5400db6d0c125823e1efa"
-				fixedValue="true">
+		</link>
+		<link id="a3f6fcff3eb5400db6d0c125823e1efa"
+			fixedValue="true">
 			<from>false</from>
 			<to>fullEnterprise</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="58439f00953e4e07af73ecea069ee77f"
-				fixedValue="true">
+		</link>
+		<link id="58439f00953e4e07af73ecea069ee77f"
+			fixedValue="true">
 			<from>false</from>
 			<to>fullEstablishment</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="2baa1a1ba50343e2b795cfd0bb5c6ee2"
-				fixedValue="true">
+		</link>
+		<link id="2baa1a1ba50343e2b795cfd0bb5c6ee2"
+			fixedValue="true">
 			<from>false</from>
 			<to>fullCode</to>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="e64b361fb48548a5bfd63b7332285cb1"
-				fixedValue="true">
+		</link>
+		<link id="e64b361fb48548a5bfd63b7332285cb1"
+			fixedValue="true">
 			<from>true</from>
 			<to>updateCode</to>
-		</steps>
-	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			comment="Get all full downloads"
-			disabled="false"
-			id="e189d6c4d2ba49938217d97e9aa7dacd"
-			lineNumber="6">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-				disabled="false"
-				id="38bc6b77418b4b568b1fecd25dcff24d"
-				serviceId="nabu.integrations.kbo.crud.download.services.list"
-				resultName="result20b38cc4c2034093ad083b38ff88f7e1"
-				temporaryMapping="true"
-				x="229"
-				y="24"
-				invocationOrder="0"
-				asynchronous="false"
-				recache="false">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="45a0e55a1e4c4f20982e616fbe2dd45d"
-					fixedValue="true">
+		</link>
+	</map>
+	<map id="e189d6c4d2ba49938217d97e9aa7dacd"
+		comment="Get all full downloads">
+		<invoke id="38bc6b77418b4b568b1fecd25dcff24d"
+			resultName="result20b38cc4c2034093ad083b38ff88f7e1"
+			serviceId="nabu.integrations.kbo.crud.download.services.list"
+			x="229"
+			y="24">
+			<link id="45a0e55a1e4c4f20982e616fbe2dd45d"
+				fixedValue="true">
 				<from>false</from>
 				<to>filter/delta</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-				disabled="false"
-				id="6fed3414b6134ad49a6474cad0ec6382"
-				fixedValue="false">
+			</link>
+		</invoke>
+		<link id="6fed3414b6134ad49a6474cad0ec6382">
 			<from>result20b38cc4c2034093ad083b38ff88f7e1/results</from>
 			<to>fullDownloads</to>
-		</steps>
-	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
-			disabled="false"
-			id="9745d836324e474796d4e80cb31aed7e"
-			lineNumber="7">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				comment="Mark everything as full"
-				disabled="false"
-				id="09d1fdad91554a7aa4d226ebdc6c350d"
-				label="!fullDownloads"
-				lineNumber="8">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="920b538ac5764cdc8667fb61934700d0"
-					fixedValue="false">
+		</link>
+	</map>
+	<switch id="9745d836324e474796d4e80cb31aed7e">
+		<map id="09d1fdad91554a7aa4d226ebdc6c350d"
+			comment="Mark everything as full"
+			label="!fullDownloads">
+			<link id="920b538ac5764cdc8667fb61934700d0">
 				<from>input/activity</from>
 				<to>fullActivity</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="778805397a00474ea2f683db0f99ce37"
-					fixedValue="false">
+			</link>
+			<link id="778805397a00474ea2f683db0f99ce37">
 				<from>input/address</from>
 				<to>fullAddress</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="c03075cd632b48a89ced75454ec1194b"
-					fixedValue="false">
+			</link>
+			<link id="c03075cd632b48a89ced75454ec1194b">
 				<from>input/contact</from>
 				<to>fullContact</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="67bf5a2b66124a78a0583523f28f3330"
-					fixedValue="true">
+			</link>
+			<link id="67bf5a2b66124a78a0583523f28f3330"
+				fixedValue="true">
 				<from>true</from>
 				<to>fullBranch</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="33bf69d249a348acb83106282237c521"
-					fixedValue="true">
+			</link>
+			<link id="33bf69d249a348acb83106282237c521"
+				fixedValue="true">
 				<from>true</from>
 				<to>fullDenomination</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="e9d1c909df2b4cbda511ff461a2c4a8e"
-					fixedValue="true">
+			</link>
+			<link id="e9d1c909df2b4cbda511ff461a2c4a8e"
+				fixedValue="true">
 				<from>true</from>
 				<to>fullEnterprise</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="37f81ab8c1b246c4be1108f82cfcbf93"
-					fixedValue="true">
+			</link>
+			<link id="37f81ab8c1b246c4be1108f82cfcbf93"
+				fixedValue="true">
 				<from>true</from>
 				<to>fullEstablishment</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="d8d7e094b9c642e6b52fdf731f29b6f1"
-					fixedValue="true">
+			</link>
+			<link id="d8d7e094b9c642e6b52fdf731f29b6f1"
+				fixedValue="true">
 				<from>true</from>
 				<to>full</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="f20eee4aac9b42fc995180fa1bca1892"
-					fixedValue="true">
+			</link>
+			<link id="f20eee4aac9b42fc995180fa1bca1892"
+				fixedValue="true">
 				<from>false</from>
 				<to>update</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="ae2da0238b7d45a4b3892742d82cffae"
-					fixedValue="true">
+			</link>
+			<link id="ae2da0238b7d45a4b3892742d82cffae"
+				fixedValue="true">
 				<from>true</from>
 				<to>fullCode</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
-				comment="We do an update but might still need a full of some facts if you have toggled them for the first time"
-				disabled="false"
-				id="6c476a615b4b4a0aa43f4044a83cad79"
-				lineNumber="9">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-					comment="You want activity and we never did a full download"
-					disabled="false"
-					id="8c820398d9b941d4973103d57930fb41"
-					label="input/activity &amp;&amp; !fullDownloads[activity == true]"
-					lineNumber="10">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="ea16a3b4c0b0499c9a482c83493aaca9"
-						fixedValue="true">
+			</link>
+		</map>
+		<sequence id="6c476a615b4b4a0aa43f4044a83cad79"
+			comment="We do an update but might still need a full of some facts if you have toggled them for the first time">
+			<map id="8c820398d9b941d4973103d57930fb41"
+				comment="You want activity and we never did a full download"
+				label="input/activity &amp;&amp; !fullDownloads[activity == true]">
+				<link id="ea16a3b4c0b0499c9a482c83493aaca9"
+					fixedValue="true">
 					<from>true</from>
 					<to>full</to>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="d5b5b436693047bca46d28da9dd11bf4"
-						fixedValue="true">
+				</link>
+				<link id="d5b5b436693047bca46d28da9dd11bf4"
+					fixedValue="true">
 					<from>true</from>
 					<to>fullActivity</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-					comment="You want address and we never did a full download"
-					disabled="false"
-					id="8dfd18e34b50488c9a59523c588f057c"
-					label="input/address &amp;&amp; !fullDownloads[address == true]"
-					lineNumber="11">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="2f020c009863431fafb82747ef048b23"
-						fixedValue="true">
+				</link>
+			</map>
+			<map id="8dfd18e34b50488c9a59523c588f057c"
+				comment="You want address and we never did a full download"
+				label="input/address &amp;&amp; !fullDownloads[address == true]">
+				<link id="2f020c009863431fafb82747ef048b23"
+					fixedValue="true">
 					<from>true</from>
 					<to>full</to>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="e7956cdb0ce74025b8e96fac789dcb11"
-						fixedValue="true">
+				</link>
+				<link id="e7956cdb0ce74025b8e96fac789dcb11"
+					fixedValue="true">
 					<from>true</from>
 					<to>fullAddress</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-					comment="You want address and we never did a full download"
-					disabled="false"
-					id="98a8895698234f2f8eb3c2b54b43f32d"
-					label="input/contact &amp;&amp; !fullDownloads[contact == true]"
-					lineNumber="12">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="0b943a356dc946ba8b98f0c13cba5e09"
-						fixedValue="true">
+				</link>
+			</map>
+			<map id="98a8895698234f2f8eb3c2b54b43f32d"
+				comment="You want address and we never did a full download"
+				label="input/contact &amp;&amp; !fullDownloads[contact == true]">
+				<link id="0b943a356dc946ba8b98f0c13cba5e09"
+					fixedValue="true">
 					<from>true</from>
 					<to>full</to>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="01a40c3c9e4148ac8cd8368e716b99e4"
-						fixedValue="true">
+				</link>
+				<link id="01a40c3c9e4148ac8cd8368e716b99e4"
+					fixedValue="true">
 					<from>true</from>
 					<to>fullContact</to>
-				</steps>
-			</steps>
-		</steps>
-	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
-			comment="Do a full download"
-			disabled="false"
-			id="18bf0785af29405891ee7bb65656f8e5"
-			label="full"
-			lineNumber="13">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				disabled="false"
-				id="e68016c1590e4498898387602004d83d"
-				lineNumber="14">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="b1b5a6cf47904bcd97caac2a4049ae36"
-					serviceId="nabu.utils.Server.uuid"
-					resultName="result0ddac6e615734cb7ad70c2d2cbb87e68"
-					temporaryMapping="true"
-					x="392"
-					y="110"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="7890cac41cfb479ba7b5858376aef051"
-					fixedValue="false">
+				</link>
+			</map>
+		</sequence>
+	</switch>
+	<sequence id="18bf0785af29405891ee7bb65656f8e5"
+		comment="Do a full download"
+		label="full">
+		<map id="e68016c1590e4498898387602004d83d">
+			<invoke id="b1b5a6cf47904bcd97caac2a4049ae36"
+				resultName="result0ddac6e615734cb7ad70c2d2cbb87e68"
+				serviceId="nabu.utils.Server.uuid"
+				x="392"
+				y="110">
+			</invoke>
+			<link id="7890cac41cfb479ba7b5858376aef051">
 				<from>result0ddac6e615734cb7ad70c2d2cbb87e68/uuid</from>
 				<to>downloadEntry/id</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="b42e420932cd42f78e1e042d51e4eb3d"
-					serviceId="nabu.utils.Date.now"
-					resultName="resulta7c18c46d9b74d9cb3d4e242715a2a94"
-					temporaryMapping="true"
-					x="353"
-					y="493"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="44cd255479b3444aaf99b93bde1dab5e"
-					fixedValue="false">
+			</link>
+			<invoke id="b42e420932cd42f78e1e042d51e4eb3d"
+				resultName="resulta7c18c46d9b74d9cb3d4e242715a2a94"
+				serviceId="nabu.utils.Date.now"
+				x="353"
+				y="493">
+			</invoke>
+			<link id="44cd255479b3444aaf99b93bde1dab5e">
 				<from>resulta7c18c46d9b74d9cb3d4e242715a2a94/date</from>
 				<to>downloadEntry/started</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="f72cd411a8524740a22361ab1dad82f1"
-					fixedValue="false">
+			</link>
+			<link id="f72cd411a8524740a22361ab1dad82f1">
 				<from>fullActivity</from>
 				<to>downloadEntry/activity</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="0bd8c41bbfba4f20a6da151943078838"
-					fixedValue="false">
+			</link>
+			<link id="0bd8c41bbfba4f20a6da151943078838">
 				<from>fullAddress</from>
 				<to>downloadEntry/address</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="6338b36348e1469b9c83d3e514ce547b"
-					fixedValue="false">
+			</link>
+			<link id="6338b36348e1469b9c83d3e514ce547b">
 				<from>fullContact</from>
 				<to>downloadEntry/contact</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="52ca255ce81d4ab6ba1a52154cddaed3"
-					fixedValue="false">
+			</link>
+			<link id="52ca255ce81d4ab6ba1a52154cddaed3">
 				<from>fullBranch</from>
 				<to>downloadEntry/branch</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="1d28bfe43604416da894aad2407e7953"
-					fixedValue="false">
+			</link>
+			<link id="1d28bfe43604416da894aad2407e7953">
 				<from>fullCode</from>
 				<to>downloadEntry/code</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="2339143eaf0943c1a9bc8f429f222e98"
-					fixedValue="false">
+			</link>
+			<link id="2339143eaf0943c1a9bc8f429f222e98">
 				<from>fullDenomination</from>
 				<to>downloadEntry/denomination</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="0d433009cb7d44ccae0463ddac4a3801"
-					fixedValue="false">
+			</link>
+			<link id="0d433009cb7d44ccae0463ddac4a3801">
 				<from>fullEnterprise</from>
 				<to>downloadEntry/enterprise</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="160b6d15359f4d3b80059b53db6be52e"
-					fixedValue="false">
+			</link>
+			<link id="160b6d15359f4d3b80059b53db6be52e">
 				<from>fullEstablishment</from>
 				<to>downloadEntry/establishment</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="a9768f0899ea4aa4a8fda2f6ad2d0897"
-					fixedValue="false">
+			</link>
+			<link id="a9768f0899ea4aa4a8fda2f6ad2d0897">
 				<from>result0ddac6e615734cb7ad70c2d2cbb87e68/uuid</from>
 				<to>fullDownloadId</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="ad7fc0b4686b4e098deaac65d90fc9f8"
-					fixedValue="true">
+			</link>
+			<link id="ad7fc0b4686b4e098deaac65d90fc9f8"
+				fixedValue="true">
 				<from>false</from>
 				<to>downloadEntry/delta</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				disabled="false"
-				id="c2442dfc13af4b77a2a3d5f48feea983"
-				lineNumber="15">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="4490cc927c6042d28732cef05a743906"
-					serviceId="nabu.integrations.kbo.csv.download"
-					resultName="resultb833426e82b04312bd57e3d5bd3b13e0"
-					temporaryMapping="true"
-					x="285"
-					y="56"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="50bd2decf8424dc59c0d32eaa5793a13"
-						fixedValue="false">
+			</link>
+		</map>
+		<map id="c2442dfc13af4b77a2a3d5f48feea983">
+			<invoke id="4490cc927c6042d28732cef05a743906"
+				resultName="resultb833426e82b04312bd57e3d5bd3b13e0"
+				serviceId="nabu.integrations.kbo.csv.download"
+				x="285"
+				y="56">
+				<link id="50bd2decf8424dc59c0d32eaa5793a13">
 					<from>input/username</from>
 					<to>username</to>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="4b6af56611c648c9b8904b311d49ed33"
-						fixedValue="false">
+				</link>
+				<link id="4b6af56611c648c9b8904b311d49ed33">
 					<from>input/password</from>
 					<to>password</to>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="88ca731654d7439b9716ac5c3365bdd4"
-						fixedValue="true">
+				</link>
+				<link id="88ca731654d7439b9716ac5c3365bdd4"
+					fixedValue="true">
 					<from>true</from>
 					<to>full</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="f1dc86ee5ac64dcd9cf21c08e6789194"
-					fixedValue="false">
+				</link>
+			</invoke>
+			<link id="f1dc86ee5ac64dcd9cf21c08e6789194">
 				<from>resultb833426e82b04312bd57e3d5bd3b13e0/year</from>
 				<to>downloadEntry/year</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="c27eb58535454d20995de487711a1837"
-					fixedValue="false">
+			</link>
+			<link id="c27eb58535454d20995de487711a1837">
 				<from>resultb833426e82b04312bd57e3d5bd3b13e0/month</from>
 				<to>downloadEntry/month</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="e84bacd7d0194b828fac575697062672"
-					fixedValue="false">
+			</link>
+			<link id="e84bacd7d0194b828fac575697062672">
 				<from>resultb833426e82b04312bd57e3d5bd3b13e0/number</from>
 				<to>downloadEntry/sequence</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="75052d729f5f485488e8532f28eb83c4"
-					fixedValue="false">
+			</link>
+			<link id="75052d729f5f485488e8532f28eb83c4">
 				<from>resultb833426e82b04312bd57e3d5bd3b13e0/uri</from>
 				<to>downloadEntry/content</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				disabled="false"
-				id="6369640285e0459ca70dcd436c756a07"
-				lineNumber="16">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="d772ce81a1b74d1b871f429b1dbbce04"
-					serviceId="nabu.utils.Date.now"
-					resultName="result32588a6a93924e6e8dfe63517b18ed43"
-					temporaryMapping="true"
-					x="439"
-					y="97"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="d74484ac88614d57a7fc965e3c8d51ec"
-					serviceId="nabu.integrations.kbo.csv.meta.parse"
-					resultName="result868c99b8b36a4768be430cacd2a90510"
-					temporaryMapping="true"
-					x="328"
-					y="285"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="051df008a8af4ba8bd22bcc76da69ab8"
-						fixedValue="false">
+			</link>
+			<link id="190d4c8fba3d4f4eb6c6606ffaed4e14">
+				<from>resultb833426e82b04312bd57e3d5bd3b13e0/day</from>
+				<to>downloadEntry/day</to>
+			</link>
+		</map>
+		<map id="6369640285e0459ca70dcd436c756a07">
+			<invoke id="d772ce81a1b74d1b871f429b1dbbce04"
+				resultName="result32588a6a93924e6e8dfe63517b18ed43"
+				serviceId="nabu.utils.Date.now"
+				x="439"
+				y="97">
+			</invoke>
+			<invoke id="d74484ac88614d57a7fc965e3c8d51ec"
+				resultName="result868c99b8b36a4768be430cacd2a90510"
+				serviceId="nabu.integrations.kbo.csv.meta.parse"
+				x="328"
+				y="285">
+				<link id="051df008a8af4ba8bd22bcc76da69ab8">
 					<from>downloadEntry/content</from>
 					<to>uri</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="f32531cd0d00466c8f81d409303e7606"
-					fixedValue="false">
+				</link>
+			</invoke>
+			<link id="f32531cd0d00466c8f81d409303e7606">
 				<from>result868c99b8b36a4768be430cacd2a90510/create[variable == "SnapshotDate"]/value</from>
 				<to>downloadEntry/snapshot</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="ec349179ee244be3bf17f964a554ff25"
-					fixedValue="false">
+			</link>
+			<link id="ec349179ee244be3bf17f964a554ff25">
 				<from>result32588a6a93924e6e8dfe63517b18ed43/date</from>
 				<to>downloadEntry/stopped</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				disabled="false"
-				id="77fc9f8597b642ebbcf5676c4cb76f96"
-				lineNumber="17">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="1645940a0bd9444eaa2773c4775885d6"
-					serviceId="nabu.services.jdbc.Services.insert"
-					resultName="result9725b18bed7e44aba066e2964b6cfec6"
-					temporaryMapping="true"
-					x="197"
-					y="205"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="097d433ecf2c43058930641f2a49174c"
-						fixedValue="false">
+			</link>
+		</map>
+		<map id="77fc9f8597b642ebbcf5676c4cb76f96">
+			<invoke id="1645940a0bd9444eaa2773c4775885d6"
+				resultName="result9725b18bed7e44aba066e2964b6cfec6"
+				serviceId="nabu.services.jdbc.Services.insert"
+				x="197"
+				y="205">
+				<link id="097d433ecf2c43058930641f2a49174c">
 					<from>downloadEntry</from>
 					<to>instances[0]</to>
-				</steps>
-			</steps>
-		</steps>
-	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
-			comment="Do an update download"
-			disabled="false"
-			id="124aaf3450274ac9a7525af1a7e3a337"
-			label="update"
-			lineNumber="18">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				disabled="false"
-				id="683c4468041b421a84ea93052391255a"
-				lineNumber="19">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="ff321cfdf2d74387971998e1a81971e2"
-					serviceId="nabu.utils.Server.uuid"
-					resultName="result0ddac6e615734cb7ad70c2d2cbb87e68"
-					temporaryMapping="true"
-					x="440"
-					y="179"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="7023ceb5a3f4498f93929fb53fedf942"
-					fixedValue="false">
+				</link>
+			</invoke>
+		</map>
+	</sequence>
+	<sequence id="124aaf3450274ac9a7525af1a7e3a337"
+		comment="Do an update download"
+		disabled="true"
+		label="update">
+		<map id="683c4468041b421a84ea93052391255a">
+			<invoke id="ff321cfdf2d74387971998e1a81971e2"
+				resultName="result0ddac6e615734cb7ad70c2d2cbb87e68"
+				serviceId="nabu.utils.Server.uuid"
+				x="440"
+				y="179">
+			</invoke>
+			<link id="7023ceb5a3f4498f93929fb53fedf942">
 				<from>result0ddac6e615734cb7ad70c2d2cbb87e68/uuid</from>
 				<to>downloadEntry/id</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="95f4bded6565446cb3da07eea5c97aab"
-					serviceId="nabu.utils.Date.now"
-					resultName="resulta7c18c46d9b74d9cb3d4e242715a2a94"
-					temporaryMapping="true"
-					x="353"
-					y="493"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="f17f8b0eb5d3427abb905139f535dfdd"
-					fixedValue="false">
+			</link>
+			<invoke id="95f4bded6565446cb3da07eea5c97aab"
+				resultName="resulta7c18c46d9b74d9cb3d4e242715a2a94"
+				serviceId="nabu.utils.Date.now"
+				x="353"
+				y="493">
+			</invoke>
+			<link id="f17f8b0eb5d3427abb905139f535dfdd">
 				<from>resulta7c18c46d9b74d9cb3d4e242715a2a94/date</from>
 				<to>downloadEntry/started</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="b6e5b3a0200e4dd39a32559e949d8a85"
-					fixedValue="false">
+			</link>
+			<link id="b6e5b3a0200e4dd39a32559e949d8a85">
 				<from>result0ddac6e615734cb7ad70c2d2cbb87e68/uuid</from>
 				<to>updateDownloadId</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="13d64827a66a42c1abd7b3930741d0dc"
-					fixedValue="false">
+			</link>
+			<link id="13d64827a66a42c1abd7b3930741d0dc">
 				<from>updateActivity</from>
 				<to>downloadEntry/activity</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="b6562c3fc5114634979b356386992735"
-					fixedValue="false">
+			</link>
+			<link id="b6562c3fc5114634979b356386992735">
 				<from>updateAddress</from>
 				<to>downloadEntry/address</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="1dae04ed61c2424ba6fe16141f3086b0"
-					fixedValue="false">
+			</link>
+			<link id="1dae04ed61c2424ba6fe16141f3086b0">
 				<from>updateBranch</from>
 				<to>downloadEntry/branch</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="941edf0d53b947e5b40f91750a125b91"
-					fixedValue="false">
+			</link>
+			<link id="941edf0d53b947e5b40f91750a125b91">
 				<from>updateContact</from>
 				<to>downloadEntry/contact</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="54890e729e764a7d99fd17204c7f75ed"
-					fixedValue="false">
+			</link>
+			<link id="54890e729e764a7d99fd17204c7f75ed">
 				<from>updateCode</from>
 				<to>downloadEntry/code</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="1038f5f7b0cd4f34a6ed7c4af8e0c559"
-					fixedValue="false">
+			</link>
+			<link id="1038f5f7b0cd4f34a6ed7c4af8e0c559">
 				<from>updateDenomination</from>
 				<to>downloadEntry/denomination</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="9058ce3681dc4b20b075ea556abd8afd"
-					fixedValue="false">
+			</link>
+			<link id="9058ce3681dc4b20b075ea556abd8afd">
 				<from>updateEnterprise</from>
 				<to>downloadEntry/enterprise</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="7899f882a57745c899bdee845c7b5915"
-					fixedValue="false">
+			</link>
+			<link id="7899f882a57745c899bdee845c7b5915">
 				<from>updateEstablishment</from>
 				<to>downloadEntry/establishment</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="55f6e1c5a22b4ad6b078dcb88bc22237"
-					fixedValue="true">
+			</link>
+			<link id="55f6e1c5a22b4ad6b078dcb88bc22237"
+				fixedValue="true">
 				<from>true</from>
 				<to>downloadEntry/delta</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				disabled="false"
-				id="42a0ce207cd3476fb546ffac6800a9ff"
-				lineNumber="20">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="f5da7679b836496296d6be15b081eb5c"
-					serviceId="nabu.integrations.kbo.csv.download"
-					resultName="resultb833426e82b04312bd57e3d5bd3b13e0"
-					temporaryMapping="true"
-					x="285"
-					y="56"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="9d4c9b5df5ad49bf877770a85dc4b06b"
-						fixedValue="false">
+			</link>
+		</map>
+		<map id="42a0ce207cd3476fb546ffac6800a9ff">
+			<invoke id="f5da7679b836496296d6be15b081eb5c"
+				resultName="resultb833426e82b04312bd57e3d5bd3b13e0"
+				serviceId="nabu.integrations.kbo.csv.download"
+				x="285"
+				y="56">
+				<link id="9d4c9b5df5ad49bf877770a85dc4b06b">
 					<from>input/username</from>
 					<to>username</to>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="4929c0f602ae436e9f6cdd2c88ff574d"
-						fixedValue="false">
+				</link>
+				<link id="4929c0f602ae436e9f6cdd2c88ff574d">
 					<from>input/password</from>
 					<to>password</to>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="2ff118c6cf6848c19734b737b17771c7"
-						fixedValue="true">
+				</link>
+				<link id="2ff118c6cf6848c19734b737b17771c7"
+					fixedValue="true">
 					<from>false</from>
 					<to>full</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="3fd31725be124950aca5912176c12a08"
-					fixedValue="false">
+				</link>
+			</invoke>
+			<link id="3fd31725be124950aca5912176c12a08">
 				<from>resultb833426e82b04312bd57e3d5bd3b13e0/year</from>
 				<to>downloadEntry/year</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="01a7726a1fd2471d9a368b719b787973"
-					fixedValue="false">
+			</link>
+			<link id="01a7726a1fd2471d9a368b719b787973">
 				<from>resultb833426e82b04312bd57e3d5bd3b13e0/month</from>
 				<to>downloadEntry/month</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="c727f811f8d54b839c761c9dda5d3e71"
-					fixedValue="false">
+			</link>
+			<link id="c727f811f8d54b839c761c9dda5d3e71">
 				<from>resultb833426e82b04312bd57e3d5bd3b13e0/number</from>
 				<to>downloadEntry/sequence</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="6c987e2f50c94a5cb71d97059967fd3d"
-					fixedValue="false">
+			</link>
+			<link id="6c987e2f50c94a5cb71d97059967fd3d">
 				<from>resultb833426e82b04312bd57e3d5bd3b13e0/uri</from>
 				<to>downloadEntry/content</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				disabled="false"
-				id="54c2954eabda4a8687eef26f98a2f7da"
-				lineNumber="21">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="4c10a956f4884c67a3e68c67fb7afc0f"
-					serviceId="nabu.utils.Date.now"
-					resultName="result32588a6a93924e6e8dfe63517b18ed43"
-					temporaryMapping="true"
-					x="439"
-					y="97"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="665ec8eb5745437c851164f137ee88cf"
-					serviceId="nabu.integrations.kbo.csv.meta.parse"
-					resultName="result868c99b8b36a4768be430cacd2a90510"
-					temporaryMapping="true"
-					x="328"
-					y="285"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="b6c6202a7d6348b7b009a4df20007448"
-						fixedValue="false">
+			</link>
+		</map>
+		<map id="54c2954eabda4a8687eef26f98a2f7da">
+			<invoke id="4c10a956f4884c67a3e68c67fb7afc0f"
+				resultName="result32588a6a93924e6e8dfe63517b18ed43"
+				serviceId="nabu.utils.Date.now"
+				x="439"
+				y="97">
+			</invoke>
+			<invoke id="665ec8eb5745437c851164f137ee88cf"
+				resultName="result868c99b8b36a4768be430cacd2a90510"
+				serviceId="nabu.integrations.kbo.csv.meta.parse"
+				x="328"
+				y="285">
+				<link id="b6c6202a7d6348b7b009a4df20007448">
 					<from>downloadEntry/content</from>
 					<to>uri</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="b4c7ecc3268f42cb9651b08eead6cfd0"
-					fixedValue="false">
+				</link>
+			</invoke>
+			<link id="b4c7ecc3268f42cb9651b08eead6cfd0">
 				<from>result868c99b8b36a4768be430cacd2a90510/create[variable == "SnapshotDate"]/value</from>
 				<to>downloadEntry/snapshot</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="3bbfe854215f4fdf938c3ad4659156b2"
-					fixedValue="false">
+			</link>
+			<link id="3bbfe854215f4fdf938c3ad4659156b2">
 				<from>result32588a6a93924e6e8dfe63517b18ed43/date</from>
 				<to>downloadEntry/stopped</to>
-			</steps>
-		</steps>
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				disabled="false"
-				id="be67ba64cd5e4d37b6f4268c7ef6e5ca"
-				lineNumber="22">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="0453a4c22871414b9958d60b99a5ea98"
-					serviceId="nabu.services.jdbc.Services.insert"
-					resultName="result9725b18bed7e44aba066e2964b6cfec6"
-					temporaryMapping="true"
-					x="197"
-					y="205"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="9bbdac251e774b4c96a9c4d12e3ddb30"
-						fixedValue="false">
+			</link>
+		</map>
+		<map id="be67ba64cd5e4d37b6f4268c7ef6e5ca">
+			<invoke id="0453a4c22871414b9958d60b99a5ea98"
+				resultName="result9725b18bed7e44aba066e2964b6cfec6"
+				serviceId="nabu.services.jdbc.Services.insert"
+				x="197"
+				y="205">
+				<link id="9bbdac251e774b4c96a9c4d12e3ddb30">
 					<from>downloadEntry</from>
 					<to>instances[0]</to>
-				</steps>
-			</steps>
-		</steps>
-	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			comment="Generate tasks asynchronously"
-			disabled="false"
-			id="21ed8e0775394887b5c0033ea111f3bd"
-			lineNumber="23">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-				disabled="false"
-				id="e83e155cc4bc417eac661e12640108e5"
-				serviceId="nabu.integrations.kbo.persist.generateTasks"
-				resultName="result31177780d09e49dd8ddbf300904cb779"
-				temporaryMapping="true"
-				x="225"
-				y="55"
-				invocationOrder="0"
-				target="nabu.frameworks.tasks.providers.executor"
-				asynchronous="false"
-				recache="false">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="aef17dd1ee4341b1a640b065b77a52eb"
-					fixedValue="false">
+				</link>
+			</invoke>
+		</map>
+	</sequence>
+	<sequence id="2e9aaf261b824e2b84922dbf91ad08a3"
+		comment="Do all update downloads since last"
+		label="update">
+		<map id="6574821585f94c6d89f5fdf7d20ba2e2">
+			<invoke id="7812886b5ddf4dd5a5543810c2f994f6"
+				resultName="result7812886b5ddf4dd5a5543810c2f994f6"
+				serviceId="nabu.integrations.kbo.persist.calculateUpdateDates"
+				x="95"
+				y="47">
+			</invoke>
+			<link id="ad8fd645f7274335a1a6a68553aecb65">
+				<from>result7812886b5ddf4dd5a5543810c2f994f6/updateDescriptors</from>
+				<to>updateDescriptors</to>
+			</link>
+		</map>
+		<for id="fbdffa3854e24d328f9a4669214fcb66"
+			into="updateDownloadId"
+			variable="updateDescriptor">
+			<map id="d8b95199bef04efb9199f7d02fb0a5d2">
+				<invoke id="feaa7aae196c41849c9530959bfcf7d7"
+					resultName="result0ddac6e615734cb7ad70c2d2cbb87e68"
+					serviceId="nabu.utils.Server.uuid"
+					x="440"
+					y="179">
+				</invoke>
+				<link id="070628cfee374884bea152186fd79bb0">
+					<from>result0ddac6e615734cb7ad70c2d2cbb87e68/uuid</from>
+					<to>downloadEntry/id</to>
+				</link>
+				<invoke id="0425f5f6a64c4f57a1070bab9598a0c1"
+					resultName="resulta7c18c46d9b74d9cb3d4e242715a2a94"
+					serviceId="nabu.utils.Date.now"
+					x="353"
+					y="493">
+				</invoke>
+				<link id="e9275f91dbd54f4ebbe01a7b393ccdca">
+					<from>resulta7c18c46d9b74d9cb3d4e242715a2a94/date</from>
+					<to>downloadEntry/started</to>
+				</link>
+				<link id="665e1c715a724a9db3dc54259b61a288">
+					<from>result0ddac6e615734cb7ad70c2d2cbb87e68/uuid</from>
+					<to>updateDownloadId[0]</to>
+				</link>
+				<link id="da7bbd418b0a420a887e795589ded4a5">
+					<from>updateActivity</from>
+					<to>downloadEntry/activity</to>
+				</link>
+				<link id="bc6e6289e75c431aa542edca40e41ab0">
+					<from>updateAddress</from>
+					<to>downloadEntry/address</to>
+				</link>
+				<link id="84c8aab7f8e04dafabd51d7192223b39">
+					<from>updateBranch</from>
+					<to>downloadEntry/branch</to>
+				</link>
+				<link id="4cf790a12c104d7d8239a4364d7705f6">
+					<from>updateContact</from>
+					<to>downloadEntry/contact</to>
+				</link>
+				<link id="0d08533fcc9a4c5f99dd28f2bc14eb2b">
+					<from>updateCode</from>
+					<to>downloadEntry/code</to>
+				</link>
+				<link id="f5689ff8448e479fb87ed3e7f9ad65bc">
+					<from>updateDenomination</from>
+					<to>downloadEntry/denomination</to>
+				</link>
+				<link id="4c577a3a9b5f4acf8c0a8185adf84fd8">
+					<from>updateEnterprise</from>
+					<to>downloadEntry/enterprise</to>
+				</link>
+				<link id="6f433896a1dc49b9a08d24de0d00f550">
+					<from>updateEstablishment</from>
+					<to>downloadEntry/establishment</to>
+				</link>
+				<link id="d05509fcfa4044168eccf732dee764cd"
+					fixedValue="true">
+					<from>true</from>
+					<to>downloadEntry/delta</to>
+				</link>
+			</map>
+			<map id="701785de44154c5da60e96aaed4d0d7b">
+				<invoke id="c6533d744cfc462b8de70b733c420a1b"
+					resultName="resultb833426e82b04312bd57e3d5bd3b13e0"
+					serviceId="nabu.integrations.kbo.csv.download"
+					x="285"
+					y="56">
+					<link id="ee5593836a3348598598bb84ef8e7047">
+						<from>input/username</from>
+						<to>username</to>
+					</link>
+					<link id="b77774a97de746bb87d66187a32f7be0">
+						<from>input/password</from>
+						<to>password</to>
+					</link>
+					<link id="94bac4478cc743f49751f1564193f9d9"
+						fixedValue="true">
+						<from>false</from>
+						<to>full</to>
+					</link>
+					<link id="9b8de8787bd04b9b8074f06b9cb5b7df">
+						<from>updateDescriptor/year</from>
+						<to>year</to>
+					</link>
+					<link id="3e1aff10152343e2b3fce327a69c880f">
+						<from>updateDescriptor/month</from>
+						<to>month</to>
+					</link>
+					<link id="6488611e104a49aea403a005032aa000">
+						<from>updateDescriptor/day</from>
+						<to>day</to>
+					</link>
+					<link id="9b3eb2805d0c41bfa976929d6fee94f5">
+						<from>updateDescriptor/sequence</from>
+						<to>number</to>
+					</link>
+				</invoke>
+				<link id="7e2ee214de5d420d89b0abe2818a5a67">
+					<from>resultb833426e82b04312bd57e3d5bd3b13e0/year</from>
+					<to>downloadEntry/year</to>
+				</link>
+				<link id="1a94341bdb3f40b5aba90c06eed51dd6">
+					<from>resultb833426e82b04312bd57e3d5bd3b13e0/month</from>
+					<to>downloadEntry/month</to>
+				</link>
+				<link id="f5fca71ccfcc42699523688cc1c79567">
+					<from>resultb833426e82b04312bd57e3d5bd3b13e0/number</from>
+					<to>downloadEntry/sequence</to>
+				</link>
+				<link id="2006cf418d274a178e3b6e8c8aaf1ffe">
+					<from>resultb833426e82b04312bd57e3d5bd3b13e0/uri</from>
+					<to>downloadEntry/content</to>
+				</link>
+				<link id="53211b3e72b04bdaa5b51ec5afda862e">
+					<from>resultb833426e82b04312bd57e3d5bd3b13e0/day</from>
+					<to>downloadEntry/day</to>
+				</link>
+			</map>
+			<map id="6a3e0e20b2d546edb80182ce6c1deac6">
+				<invoke id="bae3091725b346c9ad768203884f5552"
+					resultName="result32588a6a93924e6e8dfe63517b18ed43"
+					serviceId="nabu.utils.Date.now"
+					x="439"
+					y="97">
+				</invoke>
+				<invoke id="c5d9c6c2c8c34427ba2bbdd02456ead3"
+					resultName="result868c99b8b36a4768be430cacd2a90510"
+					serviceId="nabu.integrations.kbo.csv.meta.parse"
+					x="328"
+					y="285">
+					<link id="668d373853824b31b4ddffed27a621bd">
+						<from>downloadEntry/content</from>
+						<to>uri</to>
+					</link>
+				</invoke>
+				<link id="2c55849abc0b4edc860eec16aa27a70e">
+					<from>result868c99b8b36a4768be430cacd2a90510/create[variable == "SnapshotDate"]/value</from>
+					<to>downloadEntry/snapshot</to>
+				</link>
+				<link id="7c9cc701092c441b8ea14317d2448f8f">
+					<from>result32588a6a93924e6e8dfe63517b18ed43/date</from>
+					<to>downloadEntry/stopped</to>
+				</link>
+			</map>
+			<map id="9e207b1903f54f66bbdba9e221c88a31">
+				<invoke id="d7a896e7550147d0b2bdb62ee6747ab5"
+					resultName="result9725b18bed7e44aba066e2964b6cfec6"
+					serviceId="nabu.services.jdbc.Services.insert"
+					x="197"
+					y="205">
+					<link id="709973ee6c2a4e49ada3773fc8121d26">
+						<from>downloadEntry</from>
+						<to>instances[0]</to>
+					</link>
+				</invoke>
+				<drop id="543758edd62e49e293bc5ed952f68a89"
+					path="downloadEntry"/>
+			</map>
+			<query>updateDescriptors</query>
+		</for>
+	</sequence>
+	<map id="21ed8e0775394887b5c0033ea111f3bd"
+		comment="Generate tasks asynchronously">
+		<invoke id="e83e155cc4bc417eac661e12640108e5"
+			resultName="result31177780d09e49dd8ddbf300904cb779"
+			serviceId="nabu.integrations.kbo.persist.generateTasks"
+			target="nabu.frameworks.tasks.providers.executor"
+			x="225"
+			y="55">
+			<link id="aef17dd1ee4341b1a640b065b77a52eb">
 				<from>fullDownloadId</from>
 				<to>fullDownloadId</to>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="b6df5cd0d67e49acbde2e1653faf5f10"
-					fixedValue="false">
+			</link>
+			<link id="b6df5cd0d67e49acbde2e1653faf5f10">
 				<from>updateDownloadId</from>
 				<to>updateDownloadId</to>
-			</steps>
+			</link>
 			<targetProperties
 					collectionIndex="queue">kbo</targetProperties>
-		</steps>
-	</steps>
+		</invoke>
+	</map>
 </sequence>

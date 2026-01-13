@@ -1,0 +1,13 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="lastSequence" type="java.lang.Long"/>
+    </structure>
+    <structure name="output">
+        <structure definition="nabu.integrations.kbo.csv.utils.downloadDescriptor" maxOccurs="unbounded" name="updateDescriptors"/>
+    </structure>
+    <field name="until" type="java.util.Date"/>
+    <field name="finalNumeric" type="java.lang.Long"/>
+    <field name="amountToCatchUp" type="java.lang.Long"/>
+    <field maxOccurs="1" name="dateOffsetToUntil" temporary="true" type="java.lang.Long"/>
+    <structure definition="nabu.integrations.kbo.csv.utils.downloadDescriptor" name="finalDescriptor"/>
+</structure>

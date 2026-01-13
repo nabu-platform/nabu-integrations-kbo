@@ -1,49 +1,29 @@
 <sequence id="bb45e04a16ea4f9cae8aebcd125270e9">
-	<map id="0907090351fd49bb83363928a2f61053"
-		comment="We assume you want the data for the previous day">
-		<invoke id="9c33891c711c4e7ebb52d9c0e4a6b2de"
-			resultName="resultc44819f78dd24445a75616c20f1b42e2"
-			serviceId="nabu.utils.Date.incrementDuration"
-			x="270"
-			y="32">
-			<link id="7c5fcd1989a44e90a491338ff14fbd8a"
-				fixedValue="true">
-				<from>-1</from>
-				<to>times</to>
-			</link>
-			<link id="4afe4d7b8512480b8feaf25cdb2484ea"
-				fixedValue="true">
-				<from>P1D</from>
-				<to>duration</to>
-			</link>
-		</invoke>
-		<link id="0e862e4570f246c3a2cfb724ebfa1fbc">
-			<from>resultc44819f78dd24445a75616c20f1b42e2/date</from>
-			<to>until</to>
-		</link>
-		<invoke id="2caab9a7fb5b49cfbbc7d3e4f6ab8c60"
-			resultName="result2caab9a7fb5b49cfbbc7d3e4f6ab8c60"
+	<map id="58fb3a2d10fe4af0949f56ead068be26"
+		comment="Get the last delta download">
+		<invoke id="978271828b55479690759f9b4c30e14f"
+			resultName="resultc0ba8c5acef84bdeb54194135ee1ec7f"
 			serviceId="nabu.integrations.kbo.crud.download.services.list"
-			x="117"
-			y="146">
-			<link id="3308f683d81c47d2bb174c869fd75653"
-				fixedValue="true">
-				<from>true</from>
-				<to>filter/delta</to>
-			</link>
-			<link id="3c17dd3d8afd4a9e914142317231dc29"
+			x="69"
+			y="120">
+			<link id="330dacd9d3444bf088e73d502a8f55a2"
 				fixedValue="true">
 				<from>sequence desc</from>
 				<to>orderBy[0]</to>
 			</link>
-			<link id="fc12d03bd9e146e99fc9a4b6c538fb96"
+			<link id="d0b38eb01a4b4b77ad71c1b21ef3b494"
+				fixedValue="true">
+				<from>true</from>
+				<to>filter/delta</to>
+			</link>
+			<link id="5fd796983134467b872ef32a004acb3c"
 				fixedValue="true">
 				<from>1</from>
 				<to>limit</to>
 			</link>
 		</invoke>
-		<link id="94b2658e12744164922fc702089253d3">
-			<from>result2caab9a7fb5b49cfbbc7d3e4f6ab8c60/results[0]</from>
+		<link id="31e6e283207f471ba4a7bd08dfbf6437">
+			<from>resultc0ba8c5acef84bdeb54194135ee1ec7f/results[0]</from>
 			<to>lastDownload</to>
 		</link>
 	</map>
@@ -53,8 +33,8 @@
 		<invoke id="c0ba8c5acef84bdeb54194135ee1ec7f"
 			resultName="resultc0ba8c5acef84bdeb54194135ee1ec7f"
 			serviceId="nabu.integrations.kbo.crud.download.services.list"
-			x="321"
-			y="145">
+			x="69"
+			y="120">
 			<link id="020cc52783f94bf0a5c8783f4dc43d21"
 				fixedValue="true">
 				<from>sequence desc</from>
@@ -79,4 +59,23 @@
 	<throw id="ecaff5b2092e4cfabd450f7f28c76609"
 		label="lastDownload != null &amp;&amp; lastDownload/processed == null"
 		message="Last download is not fully processed, wait for that"/>
+	<throw id="bdce1b5888824f09b473c17dff33e706"
+		label="!lastDownload"
+		message="No download found, can not calculate updates"/>
+	<map id="0d6278de2bed41baaffc901e963294fa">
+		<invoke id="17d44f59e5bd43e0bc67b9fa9e3e84d3"
+			resultName="result17d44f59e5bd43e0bc67b9fa9e3e84d3"
+			serviceId="nabu.integrations.kbo.csv.utils.calculateUpdateDates"
+			x="50"
+			y="32">
+			<link id="d48b58749f7a4676b9636f7737f8dfa2">
+				<from>lastDownload/sequence</from>
+				<to>lastSequence</to>
+			</link>
+		</invoke>
+		<link id="2922c2bdc4724471b006bf046430a608">
+			<from>result17d44f59e5bd43e0bc67b9fa9e3e84d3/updateDescriptors</from>
+			<to>output/updateDescriptors</to>
+		</link>
+	</map>
 </sequence>
