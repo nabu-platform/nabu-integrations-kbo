@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T15:36:34.231+02:00" lastModified="2025-09-24T11:49:36.393+02:00" leaf="true" version="26">
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2025-09-23T15:36:34.231+02:00" lastModified="2026-02-04T15:32:51.210+01:00" leaf="true" version="27">
     <environmentId>ares</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
-    <references>nabu.integrations.kbo.database.types.kboCode</references>
     <references>nabu.integrations.kbo.persist.code.get</references>
     <references>nabu.integrations.kbo.csv.address.create</references>
     <references>nabu.integrations.kbo.crud.enterprise.types.output</references>
     <references>java.util.Date</references>
-    <references>nabu.integrations.kbo.database.types.kboEstablishment</references>
     <references>nabu.utils.Date.now</references>
     <references>nabu.utils.Server.uuid</references>
     <references>nabu.integrations.kbo.database.types.kboAddress</references>
     <references>nabu.utils.List.hash</references>
-    <references>nabu.integrations.kbo.database.core</references>
-    <references>java.util.UUID</references>
-    <references>nabu.integrations.kbo.database.types.kboEnterprise</references>
     <references>nabu.integrations.kbo.crud.establishment.services.list</references>
     <references>nabu.integrations.kbo.persist.processCreate</references>
     <references>nabu.services.jdbc.Services.insert</references>
@@ -24,8 +19,6 @@
     <references>nabu.utils.Object.first</references>
     <references>nabu.integrations.kbo.crud.establishment.types.output</references>
     <references>java.util.Map</references>
-    <references>java.lang.Boolean</references>
     <references>java.lang.Object</references>
-    <references>java.lang.String</references>
     <references>nabu.integrations.kbo.crud.enterprise.services.list</references>
 </node>
