@@ -239,9 +239,9 @@
 				<from>create/extraAddressInfo</from>
 				<to>addresses[0]/extra</to>
 			</link>
-			<link id="e5878bad36f44a7d9303e383b9f9a1ce">
+			<link id="c189043351a14898be86a782a3d7463a">
 				<from>create/dateStrikingOff</from>
-				<to>addresses[0]/deleted</to>
+				<to>addresses[0]/strikken</to>
 			</link>
 		</map>
 		<query>input/create</query>

@@ -12,4 +12,5 @@
     <field minOccurs="0" name="streetNumber" type="java.lang.String"/>
     <field minOccurs="0" name="box" type="java.lang.String"/>
     <field minOccurs="0" name="extra" type="java.lang.String"/>
+    <field comment="When was it strikken in kbo?" minOccurs="0" name="strikken" timezone="UTC" type="java.util.Date"/>
 </structure>

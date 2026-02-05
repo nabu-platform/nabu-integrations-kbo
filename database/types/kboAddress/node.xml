@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2025-09-22T13:39:11.270+02:00" lastModified="2025-09-24T10:36:42.556+02:00" leaf="true" version="18">
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2025-09-22T13:39:11.270+02:00" lastModified="2026-02-05T14:08:05.927+01:00" leaf="true" version="19">
     <environmentId>ares</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
@@ -10,4 +10,5 @@
     <references>nabu.integrations.kbo.database.types.kboEstablishment</references>
     <references>nabu.integrations.kbo.database.types.kboCode</references>
     <references>java.lang.String</references>
+    <references>java.util.Date</references>
 </node>
